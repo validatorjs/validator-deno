@@ -1,4 +1,4 @@
-export default function toString(input) {
+export default function toString(input: any) {
   if (typeof input === 'object' && input !== null) {
     if (typeof input.toString === 'function') {
       input = input.toString();

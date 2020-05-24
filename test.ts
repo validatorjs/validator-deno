@@ -1,8 +1,4 @@
-import assertString from './src/lib/util/assertString.ts';
+import validator from './src/index.ts';
 
-try{
-assertString(1);
-}
-catch(e){
-  console.log(e)
-}
+console.log(validator.contains('hello world', 'hellos'))
+console.log(validator.contains("hello", "hello"));
