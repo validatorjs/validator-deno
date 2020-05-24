@@ -1,4 +1,4 @@
-export const alpha = {
+export const alpha : any = {
   'en-US': /^[A-Z]+$/i,
   'bg-BG': /^[А-Я]+$/i,
   'cs-CZ': /^[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
@@ -28,7 +28,7 @@ export const alpha = {
   'fa-IR': /^['آابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی']+$/i,
 };
 
-export const alphanumeric = {
+export const alphanumeric :any = {
   'en-US': /^[0-9A-Z]+$/i,
   'bg-BG': /^[0-9А-Я]+$/i,
   'cs-CZ': /^[0-9A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
@@ -58,7 +58,7 @@ export const alphanumeric = {
   'fa-IR': /^['0-9آابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی۱۲۳۴۵۶۷۸۹۰']+$/i,
 };
 
-export const decimal = {
+export const decimal : any = {
   'en-US': '.',
   ar: '٫',
 };
