@@ -10,7 +10,7 @@ A library for validating and sanitizing strings, inspired by the popular [valida
 ## Usage
 
 ```typescript
-import validator from "https://deno.land/x/deno_validator/mod.ts";
+import validator from "https://deno.land/x/validatorjs/mod.ts";
 
 validator.isEmail('foo@bar.com'); //=> true
 ```
