@@ -1,9 +1,9 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 const int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
 const intLeadingZeroes = /^[-+]?[0-9]+$/;
 
-export default function isInt(str: string , options: { hasOwnProperty?: any; allow_leading_zeroes?: any; min?: any; max?: any; lt?: any; gt?: any; }) {
+export default function isInt(str: string, options: { hasOwnProperty?: any; allow_leading_zeroes?: any; min?: any; max?: any; lt?: any; gt?: any; }) {
   assertString(str);
   options = options || {};
 

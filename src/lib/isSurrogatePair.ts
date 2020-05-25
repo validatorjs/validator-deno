@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 const surrogatePair = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
 

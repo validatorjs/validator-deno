@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts';
+import assertString from './util/assertString.ts
 
 const ascii = /^[\x00-\x7F]+$/;
 

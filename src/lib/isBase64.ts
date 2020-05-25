@@ -1,8 +1,8 @@
-import assertString from './util/assertString.ts';
+import assertString from './util/assertString.ts
 
 const notBase64 = /[^A-Z0-9+\/=]/i;
 
-export default function isBase64(str: string ) {
+export default function isBase64(str: string) {
   assertString(str);
   const len = str.length;
   if (!len || len % 4 !== 0 || notBase64.test(str)) {

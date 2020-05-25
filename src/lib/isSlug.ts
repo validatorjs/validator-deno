@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 let charsetRegex = /^[^-_](?!.*?[-_]{2,})([a-z0-9\\-]{1,}).*[^-_]$/;
 

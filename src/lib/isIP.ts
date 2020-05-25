@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 /**
 11.3.  Examples
 

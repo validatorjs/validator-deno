@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 import { fullWidth } from './isFullWidth';
 import { halfWidth } from './isHalfWidth';

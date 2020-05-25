@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 import merge from './util/merge';
 
 const default_fqdn_options = {
@@ -7,7 +7,7 @@ const default_fqdn_options = {
   allow_trailing_dot: false,
 };
 
-export default function isFQDN(str: string , options: { require_tld?: any; allow_trailing_dot?: any; allow_underscores?: any; }) {
+export default function isFQDN(str: string, options: { require_tld?: any; allow_trailing_dot?: any; allow_underscores?: any; }) {
   assertString(str);
   options = merge(options, default_fqdn_options);
 

@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 const numeric = /^[+-]?([0-9]*[.])?[0-9]+$/;
 const numericNoSymbols = /^[0-9]+$/;

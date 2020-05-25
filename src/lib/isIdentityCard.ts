@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 const validators = {
   ES: (str: string) => {
@@ -26,7 +26,7 @@ const validators = {
     }
 
     // validate the control digit
-    const number : any = sanitized.slice(0, -1).replace(/[X,Y,Z]/g, (char: string | number) => charsValue[char]);
+    const number: any = sanitized.slice(0, -1).replace(/[X,Y,Z]/g, (char: string | number) => charsValue[char]);
 
     return sanitized.endsWith(controlDigits[number % 23]);
   },
@@ -169,7 +169,7 @@ const validators = {
       return checkParityBit(idCardNo);
     };
 
-    const checkIdCardNo = (idCardNo: string ) => {
+    const checkIdCardNo = (idCardNo: string) => {
       let check = /^\d{15}|(\d{17}(\d|x|X))$/.test(idCardNo);
       if (!check) return false;
       if (idCardNo.length === 15) {

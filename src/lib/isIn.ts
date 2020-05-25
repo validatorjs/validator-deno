@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 import toString from './util/toString';
 
 export default function isIn(str: any, options: any) {

@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 import isIP from './isIP';
 
 const subnetMaybe = /^\d{1,2}$/;

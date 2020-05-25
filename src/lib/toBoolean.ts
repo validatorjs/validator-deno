@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 export default function toBoolean(str: string, strict: boolean) {
   assertString(str);

@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 import merge from './util/merge';
 import isByteLength from './isByteLength';
@@ -119,7 +119,7 @@ export default function isEmail(str, options) {
   }
 
   if (!isByteLength(user, { max: 64 }) ||
-            !isByteLength(domain, { max: 254 })) {
+    !isByteLength(domain, { max: 254 })) {
     return false;
   }
 

@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts';
+import assertString from './util/assertString.ts
 
 const validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 

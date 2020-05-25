@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts';
+import assertString from './util/assertString.ts
 import merge from './util/merge.ts';
 
 const default_is_empty_options = {

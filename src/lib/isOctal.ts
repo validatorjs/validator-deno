@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 const octal = /^(0o)?[0-7]+$/i;
 

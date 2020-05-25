@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 import includes from './util/includes';
 
 // from https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

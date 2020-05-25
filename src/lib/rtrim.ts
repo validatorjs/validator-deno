@@ -1,4 +1,4 @@
-import assertString from './util/assertString';
+import assertString from './util/assertString.ts';
 
 export default function rtrim(str: string, chars: string) {
   assertString(str);
