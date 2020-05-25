@@ -1,6 +1,6 @@
 import assertString from './util/assertString.ts';
 
-import blacklist from './blacklist';
+import blacklist from './blacklist.ts';
 
 export default function stripLow(str: string, keep_new_lines: boolean) {
   assertString(str);

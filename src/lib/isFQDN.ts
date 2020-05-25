@@ -1,5 +1,5 @@
 import assertString from './util/assertString.ts';
-import merge from './util/merge';
+import merge from './util/merge.ts';
 
 const default_fqdn_options = {
   require_tld: true,

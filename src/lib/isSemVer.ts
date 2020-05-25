@@ -1,5 +1,5 @@
 import assertString from './util/assertString.ts';
-import multilineRegexp from './util/multilineRegex';
+import multilineRegexp from './util/multilineRegex.ts';
 
 /**
  * Regular Expression to match

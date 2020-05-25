@@ -1,9 +1,9 @@
 import merge from './util/merge.ts';
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
-function currencyRegex(options) {
+function currencyRegex(options: any) {
   let decimal_digits = `\\d{${options.digits_after_decimal[0]}}`;
-  options.digits_after_decimal.forEach((digit, index) => { if (index !== 0) decimal_digits = `${decimal_digits}|\\d{${digit}}`; });
+  options.digits_after_decimal.forEach((digit: any, index: number) => { if (index !== 0) decimal_digits = `${decimal_digits}|\\d{${digit}}`; });
   const symbol =
     `(\\${options.symbol.replace(/\./g, '\\.')})${(options.require_symbol ? '' : '?')}`,
     negative = '-?',
@@ -71,7 +71,7 @@ const default_currency_options = {
   allow_space_after_digits: false,
 };
 
-export default function isCurrency(str, options) {
+export default function isCurrency(str: string, options: any) {
   assertString(str);
   options = merge(options, default_currency_options);
   return currencyRegex(options).test(str);

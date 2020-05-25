@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
 const validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 
@@ -8,7 +8,7 @@ const validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
 
 export default function isDataURI(str: string) {
   assertString(str);
-  let data = str.split(',');
+  let data : Array<string> = str.split(',');
   if (data.length < 2) {
     return false;
   }

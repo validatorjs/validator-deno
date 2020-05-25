@@ -1,3 +1,5 @@
+import assertString from './util/assertString.ts';\
+
 /**
  * Reference:
  * https://en.wikipedia.org/ -- Wikipedia
@@ -56,7 +58,9 @@ const passportRegexByCountryCode = {
  * @param {string} countryCode
  * @return {boolean}
  */
-export default function isPassportNumber(str: string, countryCode: string) {
+export default function isPassportNumber(str: string, countryCode: string){
+
+  assertString(str);
   /** Remove All Whitespaces, Convert to UPPERCASE */
   const normalizedStr = str.replace(/\s/g, '').toUpperCase();
 

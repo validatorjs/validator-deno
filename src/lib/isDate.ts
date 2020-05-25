@@ -17,7 +17,7 @@ export default function isDate(input: any, format = 'YYYY/MM/DD') {
   if (typeof input === 'string' && isValidFormat(format)) {
     const splitter = /[-/]/,
       dateAndFormat = zip(input.split(splitter), format.toLowerCase().split(splitter)),
-      dateObj = {};
+      dateObj : any= {};
 
     for (const [dateWord, formatWord] of dateAndFormat) {
       if (dateWord.length !== formatWord.length) {

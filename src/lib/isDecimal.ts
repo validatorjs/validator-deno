@@ -1,5 +1,5 @@
 import merge from './util/merge.ts';
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 import includes from './util/includes.ts';
 import { decimal } from './alpha.ts';
 

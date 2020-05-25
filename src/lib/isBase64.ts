@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
 const notBase64 = /[^A-Z0-9+\/=]/i;
 

@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
 export default function blacklist(str: string, chars: any) {
   assertString(str);

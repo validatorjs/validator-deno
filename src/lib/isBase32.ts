@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
 const base32 = /^[A-Z2-7]+=*$/;
 

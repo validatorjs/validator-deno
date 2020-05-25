@@ -1,4 +1,4 @@
-import merge from './util/merge';
+import merge from './util/merge.ts';
 
 const default_normalize_email_options = {
   // The following options apply to all email addresses
@@ -167,7 +167,7 @@ function dotsReplacer(match) {
   return '';
 }
 
-export default function normalizeEmail(email, options) {
+export default function normalizeEmail(email: any, options: any) {
   options = merge(options, default_normalize_email_options);
 
   const raw_parts = email.split('@');

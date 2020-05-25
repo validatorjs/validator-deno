@@ -1,7 +1,7 @@
 import assertString from './util/assertString.ts';
 
-import { fullWidth } from './isFullWidth';
-import { halfWidth } from './isHalfWidth';
+import { fullWidth } from './isFullWidth.ts';
+import { halfWidth } from './isHalfWidth.ts';
 
 export default function isVariableWidth(str: string) {
   assertString(str);

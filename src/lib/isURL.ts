@@ -1,8 +1,8 @@
 import assertString from './util/assertString.ts';
 
-import isFQDN from './isFQDN';
-import isIP from './isIP';
-import merge from './util/merge';
+import isFQDN from './isFQDN.ts';
+import isIP from './isIP.ts';
+import merge from './util/merge.ts';
 
 /*
 options for isURL method

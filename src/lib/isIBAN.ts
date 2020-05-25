@@ -115,7 +115,7 @@ function hasValidIbanFormat(str: string) {
    * @param {string} str
    * @return {boolean}
    */
-function hasValidIbanChecksum(str) {
+function hasValidIbanChecksum(str: any) {
   const strippedStr = str.replace(/[^A-Z0-9]+/gi, '').toUpperCase(); // Keep only digits and A-Z latin alphabetic
   const rearranged = strippedStr.slice(4) + strippedStr.slice(0, 4);
   const alphaCapsReplacedWithDigits = rearranged.replace(/[A-Z]/g, (char: string) => char.charCodeAt(0) - 55);

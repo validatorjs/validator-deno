@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 import { alpha } from './alpha.ts';
 
 export default function isAlpha(str: string, locale = 'en-US') {

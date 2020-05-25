@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 
 const eth = /^(0x)[0-9a-f]{40}$/i;
 

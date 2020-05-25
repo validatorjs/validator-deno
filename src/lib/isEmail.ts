@@ -1,9 +1,9 @@
 import assertString from './util/assertString.ts';
 
-import merge from './util/merge';
-import isByteLength from './isByteLength';
-import isFQDN from './isFQDN';
-import isIP from './isIP';
+import merge from './util/merge.ts';
+import isByteLength from './isByteLength.ts';
+import isFQDN from './isFQDN.ts';
+import isIP from './isIP.ts';
 
 const default_email_options = {
   allow_display_name: false,

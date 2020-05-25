@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts
+import assertString from './util/assertString.ts'
 import toString from './util/toString.ts';
 
 export default function contains(str: string, elem: string) {
