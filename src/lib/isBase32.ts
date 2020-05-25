@@ -1,12 +1,5 @@
-import assertString from './util/assertString.ts';
+let base32: RegExp = /^[A-Z2-7]+=*$/;
 
-const base32 = /^[A-Z2-7]+=*$/;
-
-export default function isBase32(str: string) {
-  assertString(str);
-  const len = str.length;
-  if (len > 0 && len % 8 === 0 && base32.test(str)) {
-    return true;
-  }
-  return false;
+export default function isBase32(str:string): boolean {
+    return str.length>0 && str.length % 8 === 0 && base32.test(str);
 }
