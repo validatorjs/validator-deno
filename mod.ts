@@ -11,10 +11,12 @@ import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
 import isAlphanumeric, { locales as isAlphanumericLocales } from './src/lib/isAlphanumeric.ts';
 import isAscii from "./src/lib/isAscii.ts";
 import isBase32 from "./src/lib/isBase32.ts";
+import isBase64 from "./src/lib/isBase64.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isInt from "./src/lib/isInt.ts";
+import isJWT from "./src/lib/isJWT.ts";
 import isLowerCase from "./src/lib/isLowerCase.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
 
@@ -34,10 +36,12 @@ const validator : ValidatorMap = {
   isAlphanumericLocales,
   isAscii,
   isBase32,
+  isBase64,
   isEmpty,
   isFullWidth,
   isHalfWidth,
   isInt,
+  isJWT,
   isLowerCase,
   isUpperCase,
   version
