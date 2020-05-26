@@ -373,23 +373,23 @@ test({
 });
 
 
-// test({
-//     validator: 'isHexaDecimal',
-//     valid: [
-//         'deadBEEF',
-//         'ff0044',
-//     ],
-//     invalid: [
-//         'abcdefg',
-//         '',
-//         '..',
-//         '0xa2h',
-//         '0xa20x',
-//         '0x0123456789abcDEFq',
-//         '0hfedCBA9876543210q',
-//         '01234q56789abcDEF',
-//     ],
-// })
+test({
+    validator: 'isHexadecimal',
+    valid: [
+        'deadBEEF',
+        'ff0044',
+    ],
+    invalid: [
+        'abcdefg',
+        '',
+        '..',
+        '0xa2h',
+        '0xa20x',
+        '0x0123456789abcDEFq',
+        '0hfedCBA9876543210q',
+        '01234q56789abcDEF',
+    ],
+})
 
 
 test({
@@ -732,6 +732,357 @@ test({
     invalid: [
         'fooBar',
         '123A',
+    ],
+});
+
+test({
+    validator: 'isMACAddress',
+    valid: [
+        'ab:ab:ab:ab:ab:ab',
+        'FF:FF:FF:FF:FF:FF',
+        '01:02:03:04:05:ab',
+        '01:AB:03:04:05:06',
+        'A9 C5 D4 9F EB D3',
+        '01 02 03 04 05 ab',
+        '01-02-03-04-05-ab',
+        '0102.0304.05ab',
+    ],
+    invalid: [
+        'abc',
+        '01:02:03:04:05',
+        '01:02:03:04::ab',
+        '1:2:3:4:5:6',
+        'AB:CD:EF:GH:01:02',
+        'A9C5 D4 9F EB D3',
+        '01-02 03:04 05 ab',
+        '0102.03:04.05ab',
+    ],
+});
+
+test({
+    validator: 'isMagnetURI',
+    valid: [
+        'magnet:?xt=urn:btih:06E2A9683BF4DA92C73A661AC56F0ECC9C63C5B4&dn=helloword2000&tr=udp://helloworld:1337/announce',
+        'magnet:?xt=urn:btih:3E30322D5BFC7444B7B1D8DD42404B75D0531DFB&dn=world&tr=udp://world.com:1337',
+        'magnet:?xt=urn:btih:4ODKSDJBVMSDSNJVBCBFYFBKNRU875DW8D97DWC6&dn=helloworld&tr=udp://helloworld.com:1337',
+        'magnet:?xt=urn:btih:1GSHJVBDVDVJFYEHKFHEFIO8573898434JBFEGHD&dn=foo&tr=udp://foo.com:1337',
+        'magnet:?xt=urn:btih:MCJDCYUFHEUD6E2752T7UJNEKHSUGEJFGTFHVBJS&dn=bar&tr=udp://bar.com:1337',
+        'magnet:?xt=urn:btih:LAKDHWDHEBFRFVUFJENBYYTEUY837562JH2GEFYH&dn=foobar&tr=udp://foobar.com:1337',
+        'magnet:?xt=urn:btih:MKCJBHCBJDCU725TGEB3Y6RE8EJ2U267UNJFGUID&dn=test&tr=udp://test.com:1337',
+        'magnet:?xt=urn:btih:UHWY2892JNEJ2GTEYOMDNU67E8ICGICYE92JDUGH&dn=baz&tr=udp://baz.com:1337',
+        'magnet:?xt=urn:btih:HS263FG8U3GFIDHWD7829BYFCIXB78XIHG7CWCUG&dn=foz&tr=udp://foz.com:1337',
+    ],
+    invalid: [
+        '',
+        ':?xt=urn:btih:06E2A9683BF4DA92C73A661AC56F0ECC9C63C5B4&dn=helloword2000&tr=udp://helloworld:1337/announce',
+        'magnett:?xt=urn:btih:3E30322D5BFC7444B7B1D8DD42404B75D0531DFB&dn=world&tr=udp://world.com:1337',
+        'xt=urn:btih:4ODKSDJBVMSDSNJVBCBFYFBKNRU875DW8D97DWC6&dn=helloworld&tr=udp://helloworld.com:1337',
+        'magneta:?xt=urn:btih:1GSHJVBDVDVJFYEHKFHEFIO8573898434JBFEGHD&dn=foo&tr=udp://foo.com:1337',
+        'magnet:?xt=uarn:btih:MCJDCYUFHEUD6E2752T7UJNEKHSUGEJFGTFHVBJS&dn=bar&tr=udp://bar.com:1337',
+        'magnet:?xt=urn:btihz&dn=foobar&tr=udp://foobar.com:1337',
+        'magnet:?xat=urn:btih:MKCJBHCBJDCU725TGEB3Y6RE8EJ2U267UNJFGUID&dn=test&tr=udp://test.com:1337',
+        'magnet::?xt=urn:btih:UHWY2892JNEJ2GTEYOMDNU67E8ICGICYE92JDUGH&dn=baz&tr=udp://baz.com:1337',
+        'magnet:?xt:btih:HS263FG8U3GFIDHWD7829BYFCIXB78XIHG7CWCUG&dn=foz&tr=udp://foz.com:1337',
+    ],
+});
+test({
+    validator: 'isMD5',
+    valid: [
+        'd94f3f016ae679c3008de268209132f2',
+        '751adbc511ccbe8edf23d486fa4581cd',
+        '88dae00e614d8f24cfd5a8b3f8002e93',
+        '0bf1c35032a71a14c2f719e5a14c1e96',
+    ],
+    invalid: [
+        'KYT0bf1c35032a71a14c2f719e5a14c1',
+        'q94375dj93458w34',
+        '39485729348',
+        '%&FHKJFvk',
+    ],
+});
+test({
+    validator: 'isMimeType',
+    valid: [
+        'application/json',
+        'application/xhtml+xml',
+        'audio/mp4',
+        'image/bmp',
+        'font/woff2',
+        'message/http',
+        'model/vnd.gtw',
+        'multipart/form-data',
+        'multipart/form-data; boundary=something',
+        'multipart/form-data; charset=utf-8; boundary=something',
+        'multipart/form-data; boundary=something; charset=utf-8',
+        'multipart/form-data; boundary=something; charset="utf-8"',
+        'multipart/form-data; boundary="something"; charset=utf-8',
+        'multipart/form-data; boundary="something"; charset="utf-8"',
+        'text/css',
+        'text/plain; charset=utf8',
+        'Text/HTML;Charset="utf-8"',
+        'text/html;charset=UTF-8',
+        'Text/html;charset=UTF-8',
+        'text/html; charset=us-ascii',
+        'text/html; charset=us-ascii (Plain text)',
+        'text/html; charset="us-ascii"',
+        'video/mp4',
+    ],
+    invalid: [
+        '',
+        ' ',
+        '/',
+        'f/b',
+        'application',
+        'application\\json',
+        'application/json/text',
+        'application/json; charset=utf-8',
+        'audio/mp4; charset=utf-8',
+        'image/bmp; charset=utf-8',
+        'font/woff2; charset=utf-8',
+        'message/http; charset=utf-8',
+        'model/vnd.gtw; charset=utf-8',
+        'video/mp4; charset=utf-8',
+    ],
+});
+test({
+    validator: 'isMongoId',
+    valid: [
+        '507f1f77bcf86cd799439011',
+    ],
+    invalid: [
+        '507f1f77bcf86cd7994390',
+        '507f1f77bcf86cd79943901z',
+        '',
+        '507f1f77bcf86cd799439011 ',
+    ],
+});
+test({
+    validator: 'isMultibyte',
+    valid: [
+        'ひらがな・カタカナ、．漢字',
+        'あいうえお foobar',
+        'test＠example.com',
+        '1234abcDEｘｙｚ',
+        'ｶﾀｶﾅ',
+        '中文',
+    ],
+    invalid: [
+        'abc',
+        'abc123',
+        '<>@" *.',
+    ],
+});
+test({
+    validator: 'isNumeric',
+    valid: [
+        '123',
+        '00123',
+        '-00123',
+        '0',
+        '-0',
+        '+123',
+        '123.123',
+        '+000000',
+    ],
+    invalid: [
+        ' ',
+        '',
+        '.',
+    ],
+});
+
+
+test({
+    validator: 'isNumeric',
+    args: [{
+        no_symbols: true,
+    }],
+    valid: [
+        '123',
+        '00123',
+        '0',
+    ],
+    invalid: [
+        '-0',
+        '+000000',
+        '',
+        '+123',
+        '123.123',
+        '-00123',
+        ' ',
+        '.',
+    ],
+});
+
+test({
+    validator: 'isRFC3339',
+    valid: [
+        '2009-05-19 14:39:22-06:00',
+        '2009-05-19 14:39:22+06:00',
+        '2009-05-19 14:39:22Z',
+        '2009-05-19T14:39:22-06:00',
+        '2009-05-19T14:39:22Z',
+        '2010-02-18T16:23:48.3-06:00',
+        '2010-02-18t16:23:33+06:00',
+        '2010-02-18t16:23:33+06:00',
+        '2010-02-18t16:12:23.23334444z',
+        '2010-02-18T16:23:55.2283Z',
+        '2009-05-19 14:39:22.500Z',
+        '2009-05-19 14:39:55Z',
+        '2009-05-31 14:39:55Z',
+        '2009-05-31 14:53:60Z',
+        '2010-02-18t00:23:23.33+06:00',
+        '2010-02-18t00:23:32.33+00:00',
+        '2010-02-18t00:23:32.33+23:00',
+    ],
+    invalid: [
+        '2010-02-18t00:23:32.33+24:00',
+        '2009-05-31 14:60:55Z',
+        '2010-02-18t24:23.33+0600',
+        '2009-05-00 1439,55Z',
+        '2009-13-19 14:39:22-06:00',
+        '2009-05-00 14:39:22+0600',
+        '2009-00-1 14:39:22Z',
+        '2009-05-19T14:39:22',
+    ],
+});
+
+
+
+
+
+test({
+    validator: 'isRgbColor',
+    valid: [
+        'rgb(0,0,0)',
+        'rgb(255,255,255)',
+        'rgba(0,0,0,0)',
+        'rgba(255,255,255,1)',
+        'rgba(255,255,255,.1)',
+        'rgba(255,255,255,0.1)',
+        'rgb(5%,5%,5%)',
+        'rgba(5%,5%,5%,.3)',
+    ],
+    invalid: [
+        'rgb(0,0,0,)',
+        'rgb(0,0,)',
+        'rgb(0,0,256)',
+        'rgb()',
+        'rgba(0,0,0)',
+        'rgba(255,255,255,2)',
+        'rgba(255,255,255,.12)',
+        'rgba(255,255,256,0.1)',
+        'rgb(4,4,5%)',
+        'rgba(5%,5%,5%)',
+        'rgba(3,3,3%,.3)',
+        'rgb(101%,101%,101%)',
+        'rgba(3%,3%,101%,0.3)',
+    ],
+});
+
+
+
+test({
+    validator: 'isSemVer',
+    valid: [
+        '0.0.4',
+        '1.2.3',
+        '10.20.30',
+        '1.1.2-prerelease+meta',
+        '1.1.2+meta',
+        '1.1.2+meta-valid',
+        '1.0.0-alpha',
+        '1.0.0-beta',
+        '1.0.0-alpha.beta',
+        '1.0.0-alpha.beta.1',
+        '1.0.0-alpha.1',
+        '1.0.0-alpha0.valid',
+        '1.0.0-alpha.0valid',
+        '1.0.0-alpha-a.b-c-somethinglong+build.1-aef.1-its-okay',
+        '1.0.0-rc.1+build.1',
+        '2.0.0-rc.1+build.123',
+        '1.2.3-beta',
+        '10.2.3-DEV-SNAPSHOT',
+        '1.2.3-SNAPSHOT-123',
+        '1.0.0',
+        '2.0.0',
+        '1.1.7',
+        '2.0.0+build.1848',
+        '2.0.1-alpha.1227',
+        '1.0.0-alpha+beta',
+        '1.2.3----RC-SNAPSHOT.12.9.1--.12+788',
+        '1.2.3----R-S.12.9.1--.12+meta',
+        '1.2.3----RC-SNAPSHOT.12.9.1--.12',
+        '1.0.0+0.build.1-rc.10000aaa-kk-0.1',
+        '99999999999999999999999.999999999999999999.99999999999999999',
+        '1.0.0-0A.is.legal',
+    ],
+    invalid: [
+        '-invalid+invalid',
+        '-invalid.01',
+        'alpha',
+        'alpha.beta',
+        'alpha.beta.1',
+        'alpha.1',
+        'alpha+beta',
+        'alpha_beta',
+        'alpha.',
+        'alpha..',
+        'beta',
+        '1.0.0-alpha_beta',
+        '-alpha.',
+        '1.0.0-alpha..',
+        '1.0.0-alpha..1',
+        '1.0.0-alpha...1',
+        '1.0.0-alpha....1',
+        '1.0.0-alpha.....1',
+        '1.0.0-alpha......1',
+        '1.0.0-alpha.......1',
+        '01.1.1',
+        '1.01.1',
+        '1.1.01',
+        '1.2',
+        '1.2.3.DEV',
+        '1.2-SNAPSHOT',
+        '1.2.31.2.3----RC-SNAPSHOT.12.09.1--..12+788',
+        '1.2-RC-SNAPSHOT',
+        '-1.0.3-gamma+b7718',
+        '+justmeta',
+        '9.8.7+meta+meta',
+        '9.8.7-whatever+meta+meta',
+        '99999999999999999999999.999999999999999999.99999999999999999-',
+        '---RC-SNAPSHOT.12.09.1--------------------------------..12',
+    ],
+});
+
+
+
+
+test({
+    validator: 'isSlug',
+    args: ['cs_67CZ'],
+    valid: ['cs-cz', 'cscz'],
+    invalid: [
+        'not-----------slug',
+        '@#_$@',
+        '-not-slug',
+        'not-slug-',
+        '_not-slug',
+        'not-slug_',
+    ],
+});
+
+test({
+    validator: 'isSurrogatePair',    
+    valid: [
+    '𠮷野𠮷',
+    '𩸽',
+    'ABC千𥧄1-2-3',
+    ],
+    invalid: [
+        '吉野竈',
+        '鮪',
+        'ABC1-2-3',
     ],
 });
 

@@ -23,12 +23,25 @@ import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
+import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isInt from "./src/lib/isInt.ts";
 import isJSON from "./src/lib/isJSON.ts";
 import isJWT from "./src/lib/isJWT.ts";
 import isLatLong from "./src/lib/isLatLong.ts";
 import isLocale from "./src/lib/isLocale.ts";
 import isLowerCase from "./src/lib/isLowerCase.ts";
+import isMACAddress from "./src/lib/isMACAddress.ts";
+import isMagnetURI from "./src/lib/isMagnetURI.ts";
+import isMD5 from "./src/lib/isMD5.ts";
+import isMimeType from "./src/lib/isMimeType.ts";
+import isMongoId from "./src/lib/isMongoId.ts";
+import isMultibyte from "./src/lib/isMultibyte.ts";
+import isNumeric from "./src/lib/isNumeric.ts";
+import isRFC3339 from "./src/lib/isRFC3339.ts";
+import isRgbColor from "./src/lib/isRgbColor.ts";
+import isSemVer from "./src/lib/isSemVer.ts";
+import isSlug from "./src/lib/isSlug.ts";
+import isSurrogatePair from "./src/lib/isSurrogatePair.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
 
 // For testing (resolving keys as string)
@@ -57,6 +70,7 @@ const validator : ValidatorMap = {
   isFullWidth,
   isHalfWidth,
   isHash,
+  isHexadecimal,
   isHexColor,
   isHSL,
   isInt,
@@ -65,6 +79,18 @@ const validator : ValidatorMap = {
   isLatLong,
   isLocale,
   isLowerCase,
+  isMACAddress,
+  isMagnetURI,
+  isMD5,
+  isMimeType,
+  isMongoId,
+  isMultibyte,
+  isNumeric,
+  isRFC3339,
+  isRgbColor,
+  isSemVer,
+  isSlug,
+  isSurrogatePair,
   isUpperCase,
   version
 };
