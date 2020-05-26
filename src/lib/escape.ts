@@ -1,7 +1,4 @@
-import assertString from './util/assertString.ts';
-
-export default function escape(str: string) {
-  assertString(str);
+export default function escape(str: string): string {
   return (str.replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#x27;')

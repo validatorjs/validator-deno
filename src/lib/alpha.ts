@@ -1,4 +1,4 @@
-export const alpha : any = {
+export const alpha: { [key: string]: RegExp } = {
   'en-US': /^[A-Z]+$/i,
   'bg-BG': /^[А-Я]+$/i,
   'cs-CZ': /^[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
@@ -28,7 +28,7 @@ export const alpha : any = {
   'fa-IR': /^['آابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی']+$/i,
 };
 
-export const alphanumeric :any = {
+export const alphanumeric: { [key: string]: RegExp } = {
   'en-US': /^[0-9A-Z]+$/i,
   'bg-BG': /^[0-9А-Я]+$/i,
   'cs-CZ': /^[0-9A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i,
@@ -58,13 +58,13 @@ export const alphanumeric :any = {
   'fa-IR': /^['0-9آابپتثجچهخدذرزژسشصضطظعغفقکگلمنوهی۱۲۳۴۵۶۷۸۹۰']+$/i,
 };
 
-export const decimal : any = {
+export const decimal: { [key: string]: string } = {
   'en-US': '.',
   ar: '٫',
 };
 
 
-export const englishLocales = ['AU', 'GB', 'HK', 'IN', 'NZ', 'ZA', 'ZM'];
+export const englishLocales: Array<string> = ['AU', 'GB', 'HK', 'IN', 'NZ', 'ZA', 'ZM'];
 
 for (let locale: string, i = 0; i < englishLocales.length; i++) {
   locale = `en-${englishLocales[i]}`;
@@ -74,7 +74,7 @@ for (let locale: string, i = 0; i < englishLocales.length; i++) {
 }
 
 // Source: http://www.localeplanet.com/java/
-export const arabicLocales : Array<string> = [
+export const arabicLocales: Array<string> = [
   'AE', 'BH', 'DZ', 'EG', 'IQ', 'JO', 'KW', 'LB', 'LY',
   'MA', 'QM', 'QA', 'SA', 'SD', 'SY', 'TN', 'YE',
 ];
@@ -87,8 +87,8 @@ for (let locale: string, i = 0; i < arabicLocales.length; i++) {
 }
 
 // Source: https://en.wikipedia.org/wiki/Decimal_mark
-export const dotDecimal : Array<string> = ['ar-EG', 'ar-LB', 'ar-LY'];
-export const commaDecimal : Array<string> = [
+export const dotDecimal: Array<string> = ['ar-EG', 'ar-LB', 'ar-LY'];
+export const commaDecimal: Array<string> = [
   'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-ZM', 'es-ES', 'fr-FR', 'it-IT', 'ku-IQ', 'hu-HU', 'nb-NO',
   'nn-NO', 'nl-NL', 'pl-PL', 'pt-PT', 'ru-RU', 'sl-SI', 'sr-RS@latin',
   'sr-RS', 'sv-SE', 'tr-TR', 'uk-UA',
@@ -106,7 +106,6 @@ alpha['pt-BR'] = alpha['pt-PT'];
 alphanumeric['pt-BR'] = alphanumeric['pt-PT'];
 decimal['pt-BR'] = decimal['pt-PT'];
 
-// see #862
 alpha['pl-Pl'] = alpha['pl-PL'];
 alphanumeric['pl-Pl'] = alphanumeric['pl-PL'];
 decimal['pl-Pl'] = decimal['pl-PL'];

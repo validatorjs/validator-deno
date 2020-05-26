@@ -1,8 +1,6 @@
-import assertString from './util/assertString.ts';
 import { alphanumeric } from './alpha.ts';
 
-export default function isAlphanumeric(str : string, locale = 'en-US') {
-  assertString(str);
+export default function isAlphanumeric(str: string, locale: string = 'en-US'): boolean {
   if (locale in alphanumeric) {
     return alphanumeric[locale].test(str);
   }
