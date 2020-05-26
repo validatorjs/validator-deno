@@ -11,10 +11,16 @@ import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
 import isAlphanumeric, { locales as isAlphanumericLocales } from './src/lib/isAlphanumeric.ts';
 import isAscii from "./src/lib/isAscii.ts";
 import isBase32 from "./src/lib/isBase32.ts";
+import isBase64 from "./src/lib/isBase64.ts";
 import isBIC from "./src/lib/isBIC.ts";
 import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
+import isDecimal from "./src/lib/isDecimal.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
+import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
+import isHash from "./src/lib/isHash.ts";
+import isHexColor from "./src/lib/isHexColor.ts";
+import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isInt from "./src/lib/isInt.ts";
@@ -37,12 +43,18 @@ const validator : ValidatorMap = {
   isAlphanumericLocales,
   isAscii,
   isBase32,
+  isBase64,
   isBIC,
   isBoolean,
   isBtcAddress,
+  isDecimal,
   isEmpty,
+  isEthereumAddress,
   isFullWidth,
   isHalfWidth,
+  isHash,
+  isHexColor,
+  isHSL,
   isInt,
   isLowerCase,
   isUpperCase,
