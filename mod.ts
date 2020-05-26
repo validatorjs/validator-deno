@@ -24,6 +24,10 @@ import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isInt from "./src/lib/isInt.ts";
+import isJSON from "./src/lib/isJSON.ts";
+import isJWT from "./src/lib/isJWT.ts";
+import isLatLong from "./src/lib/isLatLong.ts";
+import isLocale from "./src/lib/isLocale.ts";
 import isLowerCase from "./src/lib/isLowerCase.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
 
@@ -56,6 +60,10 @@ const validator : ValidatorMap = {
   isHexColor,
   isHSL,
   isInt,
+  isJSON,
+  isJWT,
+  isLatLong,
+  isLocale,
   isLowerCase,
   isUpperCase,
   version

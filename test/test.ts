@@ -550,6 +550,129 @@ test({
     ],
 });
 
+
+
+
+test({
+    validator: 'isJSON',
+    valid: [
+        '{ "key": "value" }',
+        '{}',
+    ],
+    invalid: [
+        '{ key: "value" }',
+        '{ \'key\': \'value\' }',
+        'null',
+        '1234',
+        'false',
+        '"nope"',
+    ],
+})
+
+
+
+test({
+    validator: 'isJWT',
+    valid: [
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.gzSraSYS8EXBxLN_oWnFSRgCzcmJmMjLiuyu5CSpyHI',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb3JlbSI6Imlwc3VtIn0.ymiJSsMJXR6tMSr8G9usjQ15_8hKPDv_CArLhxw28MI',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2xvciI6InNpdCIsImFtZXQiOlsibG9yZW0iLCJpcHN1bSJdfQ.rRpe04zbWbbJjwM43VnHzAboDzszJtGrNsUxaqQ-GQ8',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqb2huIjp7ImFnZSI6MjUsImhlaWdodCI6MTg1fSwiamFrZSI6eyJhZ2UiOjMwLCJoZWlnaHQiOjI3MH19.YRLPARDmhGMC3BBk_OhtwwK21PIkVCqQe8ncIRPKo-E',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', // No signature
+    ],
+    invalid: [
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
+        '$Zs.ewu.su84',
+        'ks64$S/9.dy$§kz.3sd73b',
+    ],
+})
+
+
+test({
+    validator: 'isLatLong',
+    valid: [
+        '(-17.738223, 85.605469)',
+        '(-12.3456789, +12.3456789)',
+        '(-60.978437, -0.175781)',
+        '(77.719772, -37.529297)',
+        '(7.264394, 165.058594)',
+        '0.955766, -19.863281',
+        '(31.269161,164.355469)',
+        '+12.3456789, -12.3456789',
+        '-15.379543, -137.285156',
+        '(11.770570, -162.949219)',
+        '-55.034319, 113.027344',
+        '58.025555, 36.738281',
+        '55.720923,-28.652344',
+        '-90.00000,-180.00000',
+        '(-71, -146)',
+        '(-71.616864, -146.616864)',
+        '-0.55, +0.22',
+        '90, 180',
+        '+90, -180',
+        '-90,+180',
+        '90,180',
+        '0, 0',
+    ],
+    invalid: [
+        '(020.000000, 010.000000000)',
+        '89.9999999989, 360.0000000',
+        '90.1000000, 180.000000',
+        '+90.000000, -180.00001',
+        '090.0000, 0180.0000',
+        '126, -158',
+        '(-126.400010, -158.400010)',
+        '-95, -96',
+        '-95.738043, -96.738043',
+        '137, -148',
+        '(-137.5942, -148.5942)',
+        '(-120, -203)',
+        '(-119, -196)',
+        '+119.821728, -196.821728',
+        '(-110, -223)',
+        '-110.369532, 223.369532',
+        '(-120.969949, +203.969949)',
+        '-116, -126',
+        '-116.894222, -126.894222',
+        '-112, -160',
+        '-112.96381, -160.96381',
+        '-90., -180.',
+        '+90.1, -180.1',
+        '(-17.738223, 85.605469',
+        '0.955766, -19.863281)',
+        '+,-',
+        '(,)',
+        ',',
+        ' ',
+    ],
+})
+
+
+
+test({
+    validator: 'isLocale',
+    valid: [
+        'uz_Latn_UZ',
+        'en',
+        'gsw',
+        'es_ES',
+        'sw_KE',
+        'am_ET',
+        'ca_ES_VALENCIA',
+        'en_US_POSIX',
+    ],
+    invalid: [
+        'lo_POP',
+        '12',
+        '12_DD',
+    ]
+})
+
+
+
+
+
+
 test({
     validator: 'isLowerCase',
     valid: [
