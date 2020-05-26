@@ -10,11 +10,15 @@ const version = "1.0.0-beta";
 import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
 import isAlphanumeric, { locales as isAlphanumericLocales } from './src/lib/isAlphanumeric.ts';
 import isAscii from "./src/lib/isAscii.ts";
+import isAfter from "./src/lib/isAfter.ts";
+import isBefore from "./src/lib/isBefore.ts";
+
 import isBase32 from "./src/lib/isBase32.ts";
 import isBase64 from "./src/lib/isBase64.ts";
 import isBIC from "./src/lib/isBIC.ts";
 import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
+import isByteLength from "./src/lib/isByteLength.ts";
 import isCreditCard from "./src/lib/isCreditCard.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
@@ -24,6 +28,7 @@ import isHash from "./src/lib/isHash.ts";
 import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
+import isFloat from "./src/lib/isFloat.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isIn from "./src/lib/isIn.ts";
@@ -62,6 +67,7 @@ const validator : ValidatorMap = {
   contains,
   blacklist,
   escape,
+  isAfter,
   isAlpha,
   isAlphaLocales,
   isAlphanumeric,
@@ -69,14 +75,17 @@ const validator : ValidatorMap = {
   isAscii,
   isBase32,
   isBase64,
+  isBefore,
   isBIC,
   isBoolean,
   isBtcAddress,
+  isByteLength,
   isCreditCard,
   isDataURI,
   isDecimal,
   isEmpty,
   isEthereumAddress,
+  isFloat,
   isFullWidth,
   isHalfWidth,
   isHash,
