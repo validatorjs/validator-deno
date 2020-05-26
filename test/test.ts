@@ -865,6 +865,30 @@ test({
     ],
 });
 
+
+test({
+    validator: 'isAfter',
+    args: ['2011-08-03'],
+    valid: ['2011-08-04', new Date(2011, 8, 10).toString()],
+    invalid: ['2010-07-02', '2011-08-03', new Date(0).toString(), 'foo'],
+});
+test({
+    validator: 'isAfter',
+    valid: ['2100-08-04', new Date(Date.now() + 86400000).toString()],
+    invalid: ['2010-07-02', new Date(0).toString()],
+});
+test({
+    validator: 'isAfter',
+    args: ['2011-08-03'],
+    valid: ['2015-09-17'],
+    invalid: ['invalid date'],
+});
+test({
+    validator: 'isAfter',
+    args: ['invalid date'],
+    invalid: ['invalid date', '2015-09-17'],
+});
+
 test({
     validator: 'isAscii',
     valid: [
@@ -937,6 +961,42 @@ test({
     ],
 });
 
+
+
+test({
+    validator: 'isBefore',
+    args: ['08/04/2011'],
+    valid: ['2010-07-02', '2010-08-04', new Date(0).toString()],
+    invalid: ['08/04/2011', new Date(2011, 9, 10).toString()],
+});
+test({
+    validator: 'isBefore',
+    args: [new Date(2011, 7, 4).toString()],
+    valid: ['2010-07-02', '2010-08-04', new Date(0).toString()],
+    invalid: ['08/04/2011', new Date(2011, 9, 10).toString()],
+});
+test({
+    validator: 'isBefore',
+    valid: [
+        '2000-08-04',
+        new Date(0).toString(),
+        new Date(Date.now() - 86400000).toString(),
+    ],
+    invalid: ['2100-07-02', new Date(2217, 10, 10).toString()],
+});
+test({
+    validator: 'isBefore',
+    args: ['2011-08-03'],
+    valid: ['1999-12-31'],
+    invalid: ['invalid date'],
+});
+test({
+    validator: 'isBefore',
+    args: ['invalid date'],
+    invalid: ['invalid date', '1999-12-31'],
+});
+
+
 test({
     validator: 'isBIC',
     valid: [
@@ -987,6 +1047,26 @@ test({
         '0x56F0B8A998425c53c75C4A303D4eF987533c5597',
         'pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g',
     ],
+});
+
+
+test({
+    validator: 'isByteLength',
+    args: [2],
+    valid: ['abc', 'de', 'abcd', 'ｇｍａｉｌ'],
+    invalid: ['', 'a'],
+});
+test({
+    validator: 'isByteLength',
+    args: [2, 3],
+    valid: ['abc', 'de', 'ｇ'],
+    invalid: ['', 'a', 'abcd', 'ｇｍ'],
+});
+test({
+    validator: 'isByteLength',
+    args: [0, 0],
+    valid: [''],
+    invalid: ['ｇ', 'a'],
 });
 
 test({
@@ -1168,33 +1248,231 @@ test({
     ],
 });
 
-// test({
-//     validator: 'isFloat',
-//     valid: [
-//         '123',
-//         '123.',
-//         '123.123',
-//         '-123.123',
-//         '-0.123',
-//         '+0.123',
-//         '0.123',
-//         '.0',
-//         '-.123',
-//         '+.123',
-//         '01.123',
-//         '-0.22250738585072011e-307',
-//     ],
-//     invalid: [
-//         '+',
-//         '-',
-//         '  ',
-//         '',
-//         '.',
-//         'foo',
-//         '20.foo',
-//         '2020-01-06T14:31:00.135Z',
-//     ],
-// });
+test({
+    validator: 'isFloat',
+    valid: [
+        '123',
+        '123.',
+        '123.123',
+        '-123.123',
+        '-0.123',
+        '+0.123',
+        '0.123',
+        '.0',
+        '-.123',
+        '+.123',
+        '01.123',
+        '-0.22250738585072011e-307',
+    ],
+    invalid: [
+        '+',
+        '-',
+        '  ',
+        '',
+        '.',
+        'foo',
+        '20.foo',
+        '2020-01-06T14:31:00.135Z',
+    ],
+});
+
+test({
+    validator: 'isFloat',
+    args: [{ locale: 'en-AU' }],
+    valid: [
+        '123',
+        '123.',
+        '123.123',
+        '-123.123',
+        '-0.123',
+        '+0.123',
+        '0.123',
+        '.0',
+        '-.123',
+        '+.123',
+        '01.123',
+        '-0.22250738585072011e-307',
+    ],
+    invalid: [
+        '123٫123',
+        '123,123',
+        '  ',
+        '',
+        '.',
+        'foo',
+    ],
+});
+
+test({
+    validator: 'isFloat',
+    args: [{ locale: 'de-DE' }],
+    valid: [
+        '123',
+        '123,',
+        '123,123',
+        '-123,123',
+        '-0,123',
+        '+0,123',
+        '0,123',
+        ',0',
+        '-,123',
+        '+,123',
+        '01,123',
+        '-0,22250738585072011e-307',
+    ],
+    invalid: [
+        '123.123',
+        '123٫123',
+        '  ',
+        '',
+        '.',
+        'foo',
+    ],
+});
+
+test({
+    validator: 'isFloat',
+    args: [{ locale: 'ar-JO' }],
+    valid: [
+        '123',
+        '123٫',
+        '123٫123',
+        '-123٫123',
+        '-0٫123',
+        '+0٫123',
+        '0٫123',
+        '٫0',
+        '-٫123',
+        '+٫123',
+        '01٫123',
+        '-0٫22250738585072011e-307',
+    ],
+    invalid: [
+        '123,123',
+        '123.123',
+        '  ',
+        '',
+        '.',
+        'foo',
+    ],
+});
+
+test({
+    validator: 'isFloat',
+    args: [{
+        min: 3.7,
+    }],
+    valid: [
+        '3.888',
+        '3.92',
+        '4.5',
+        '50',
+        '3.7',
+        '3.71',
+    ],
+    invalid: [
+        '3.6',
+        '3.69',
+        '3',
+        '1.5',
+        'a',
+    ],
+});
+test({
+    validator: 'isFloat',
+    args: [{
+        min: 0.1,
+        max: 1.0,
+    }],
+    valid: [
+        '0.1',
+        '1.0',
+        '0.15',
+        '0.33',
+        '0.57',
+        '0.7',
+    ],
+    invalid: [
+        '0',
+        '0.0',
+        'a',
+        '1.3',
+        '0.05',
+        '5',
+    ],
+});
+test({
+    validator: 'isFloat',
+    args: [{
+        gt: -5.5,
+        lt: 10,
+    }],
+    valid: [
+        '9.9',
+        '1.0',
+        '0',
+        '-1',
+        '7',
+        '-5.4',
+    ],
+    invalid: [
+        '10',
+        '-5.5',
+        'a',
+        '-20.3',
+        '20e3',
+        '10.00001',
+    ],
+});
+test({
+    validator: 'isFloat',
+    args: [{
+        min: -5.5,
+        max: 10,
+        gt: -5.5,
+        lt: 10,
+    }],
+    valid: [
+        '9.99999',
+        '-5.499999',
+    ],
+    invalid: [
+        '10',
+        '-5.5',
+    ],
+});
+test({
+    validator: 'isFloat',
+    args: [{
+        locale: 'de-DE',
+        min: 3.1,
+    }],
+    valid: [
+        '123',
+        '123,',
+        '123,123',
+        '3,1',
+        '3,100001',
+    ],
+    invalid: [
+        '3,09',
+        '-,123',
+        '+,123',
+        '01,123',
+        '-0,22250738585072011e-307',
+        '-123,123',
+        '-0,123',
+        '+0,123',
+        '0,123',
+        ',0',
+        '123.123',
+        '123٫123',
+        '  ',
+        '',
+        '.',
+        'foo',
+    ],
+});
 
 test({
     validator: 'isFullWidth',
@@ -1210,31 +1488,6 @@ test({
         '!"#$%&()<>/+=-_? ~^|.,@`{}[]',
     ],
 });
-
-
-// test({
-//     validator: 'isHash',
-//     valid: [
-//         'ZG======',
-//         'JBSQ====',
-//         'JBSWY===',
-//         'JBSWY3A=',
-//         'JBSWY3DP',
-//         'JBSWY3DPEA======',
-//         'K5SWYY3PNVSSA5DPEBXG6ZA=',
-//         'K5SWYY3PNVSSA5DPEBXG6===',
-//     ],
-//     invalid: [
-//         '12345',
-//         '',
-//         'JBSWY3DPtesting123',
-//         'ZG=====',
-//         'Z======',
-//         'Zm=8JBSWY3DP',
-//         '=m9vYg==',
-//         'Zm9vYm/y====',
-//     ],
-// });
 
 test({
     validator: 'isHalfWidth',
