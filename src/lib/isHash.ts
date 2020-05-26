@@ -1,5 +1,3 @@
-import assertString from './util/assertString.ts';
-
 const lengths : {[key: string]: number}= {
   md5: 32,
   md4: 32,
@@ -17,7 +15,6 @@ const lengths : {[key: string]: number}= {
 };
 
 export default function isHash(str: string, algorithm:  number): boolean {
-  assertString(str);
   const hash = new RegExp(`^[a-fA-F0-9]{${lengths[algorithm]}}$`);
   return hash.test(str);
 }

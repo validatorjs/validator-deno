@@ -1,4 +1,3 @@
-import assertString from './util/assertString.ts';
 import multilineRegexp from './util/multilineRegex.ts';
 
 /**
@@ -14,7 +13,5 @@ const semanticVersioningRegex = multilineRegexp([
 ]);
 
 export default function isSemVer(str: string): boolean {
-  assertString(str);
-
   return semanticVersioningRegex.test(str);
 }

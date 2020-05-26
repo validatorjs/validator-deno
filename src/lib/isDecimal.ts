@@ -1,5 +1,4 @@
 import merge from './util/merge.ts';
-import assertString from './util/assertString.ts';
 import includes from './util/includes.ts';
 import { decimal } from './alpha.ts';
 
@@ -17,7 +16,6 @@ const default_decimal_options = {
 const blacklist = ['', '-', '+'];
 
 export default function isDecimal(str: string, options: any) {
-  assertString(str);
   options = merge(options, default_decimal_options);
   if (options.locale in decimal) {
     return !includes(blacklist, str.replace(/ /g, '')) && decimalRegExp(options).test(str);

@@ -1,5 +1,3 @@
-import assertString from './util/assertString.ts';
-
 const macAddress: RegExp = /^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/;
 const macAddressNoColons: RegExp = /^([0-9a-fA-F]){12}$/;
 const macAddressWithHyphen: RegExp = /^([0-9a-fA-F][0-9a-fA-F]-){5}([0-9a-fA-F][0-9a-fA-F])$/;
@@ -12,7 +10,6 @@ interface isMACAddressOptions{
 
 
 export default function isMACAddress(str: string, options: isMACAddressOptions): boolean {
-  assertString(str);
   if (options && options.no_colons) {
     return macAddressNoColons.test(str);
   }

@@ -1,8 +1,6 @@
-import assertString from './util/assertString.ts';
 import toString from './util/toString.ts';
 
 export default function isIn(str: string, options: any): boolean {
-  assertString(str);
   let i: any;
   if (Object.prototype.toString.call(options) === '[object Array]') {
     const array : string[] = [];
