@@ -4,21 +4,865 @@ test({
     validator: 'equals',
     args: ['abc'],
     valid: ['abc'],
-    invalid: ['Abc', '123']
+    invalid: ['Abc', '123'],
 });
 
 test({
     validator: 'equals',
     args: ['abc ', { trim: true }],
     valid: ['  abc  '],
-    invalid: ['Abc', '123']
+    invalid: ['Abc', '123'],
 });
 
 test({
     validator: 'equals',
     args: ['abc', { ignore_case: true }],
     valid: ['abc', 'AbC'],
-    invalid: ['@bc', '123']
+    invalid: ['@bc', '123'],
+});
+
+test({
+    validator: 'isAlpha',
+    valid: [
+        'abc',
+        'ABC',
+        'FoObar',
+    ],
+    invalid: [
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['bg-BG'],
+    valid: [
+        'абв',
+        'АБВ',
+        'жаба',
+        'яГоДа',
+    ],
+    invalid: [
+        'abc1',
+        '  foo  ',
+        '',
+        'ЁЧПС',
+        '_аз_обичам_обувки_',
+        'ехо!',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['cs-CZ'],
+    valid: [
+        'žluťoučký',
+        'KŮŇ',
+        'Pěl',
+        'Ďábelské',
+        'ódy',
+    ],
+    invalid: [
+        'ábc1',
+        '  fůj  ',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['sk-SK'],
+    valid: [
+        'môj',
+        'ľúbím',
+        'mäkčeň',
+        'stĹp',
+        'vŕba',
+        'ňorimberk',
+        'ťava',
+        'žanéta',
+        'Ďábelské',
+        'ódy',
+    ],
+    invalid: [
+        '1moj',
+        '你好世界',
+        '  Привет мир  ',
+        'مرحبا العا ',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['da-DK'],
+    valid: [
+        'aøå',
+        'Ære',
+        'Øre',
+        'Åre',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['nl-NL'],
+    valid: [
+        'Kán',
+        'één',
+        'vóór',
+        'nú',
+        'héél',
+    ],
+    invalid: [
+        'äca ',
+        'abcß',
+        'Øre',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['de-DE'],
+    valid: [
+        'äbc',
+        'ÄBC',
+        'FöÖbär',
+        'Heiß',
+    ],
+    invalid: [
+        'äbc1',
+        '  föö  ',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['hu-HU'],
+    valid: [
+        'árvíztűrőtükörfúrógép',
+        'ÁRVÍZTŰRŐTÜKÖRFÚRÓGÉP',
+    ],
+    invalid: [
+        'äbc1',
+        '  fäö  ',
+        'Heiß',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['pt-PT'],
+    valid: [
+        'palíndromo',
+        'órgão',
+        'qwértyúão',
+        'àäãcëüïÄÏÜ',
+    ],
+    invalid: [
+        '12abc',
+        'Heiß',
+        'Øre',
+        'æøå',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['it-IT'],
+    valid: [
+        'àéèìîóòù',
+        'correnti',
+        'DEFINIZIONE',
+        'compilazione',
+        'metró',
+        'pèsca',
+        'PÉSCA',
+        'genî',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        'æøå',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['ar'],
+    valid: [
+        'أبت',
+        'اَبِتَثّجً',
+    ],
+    invalid: [
+        '١٢٣أبت',
+        '١٢٣',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['fa-IR'],
+    valid: [
+        'پدر',
+        'مادر',
+        'برادر',
+        'خواهر',
+    ],
+    invalid: [
+        'فارسی۱۲۳',
+        '۱۶۴',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['ku-IQ'],
+    valid: [
+        'ئؤڤگێ',
+        'کوردستان',
+    ],
+    invalid: [
+        'ئؤڤگێ١٢٣',
+        '١٢٣',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['nb-NO'],
+    valid: [
+        'aøå',
+        'Ære',
+        'Øre',
+        'Åre',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['pl-PL'],
+    valid: [
+        'kreską',
+        'zamknięte',
+        'zwykłe',
+        'kropką',
+        'przyjęły',
+        'święty',
+        'Pozwól',
+    ],
+    invalid: [
+        '12řiď ',
+        'blé!!',
+        'föö!2!',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['sr-RS'],
+    valid: [
+        'ШћжЂљЕ',
+        'ЧПСТЋЏ',
+    ],
+    invalid: [
+        'řiď ',
+        'blé33!!',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['sr-RS@latin'],
+    valid: [
+        'ŠAabčšđćž',
+        'ŠATROĆčđš',
+    ],
+    invalid: [
+        '12řiď ',
+        'blé!!',
+        'föö!2!',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['es-ES'],
+    valid: [
+        'ábcó',
+        'ÁBCÓ',
+        'dormís',
+        'volvés',
+        'español',
+    ],
+    invalid: [
+        'äca ',
+        'abcß',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['sv-SE'],
+    valid: [
+        'religiös',
+        'stjäla',
+        'västgöte',
+        'Åre',
+    ],
+    invalid: [
+        'AİıÖöÇçŞşĞğÜüZ',
+        'religiös23',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['ar-SY'],
+    valid: [
+        'أبت',
+        'اَبِتَثّجً',
+    ],
+    invalid: [
+        '١٢٣أبت',
+        '١٢٣',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['tr-TR'],
+    valid: [
+        'AİıÖöÇçŞşĞğÜüZ',
+    ],
+    invalid: [
+        '0AİıÖöÇçŞşĞğÜüZ1',
+        '  AİıÖöÇçŞşĞğÜüZ  ',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'Heiß',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['uk-UA'],
+    valid: [
+        'АБВГҐДЕЄЖЗИIЇЙКЛМНОПРСТУФХЦШЩЬЮЯ',
+    ],
+    invalid: [
+        '0AİıÖöÇçŞşĞğÜüZ1',
+        '  AİıÖöÇçŞşĞğÜüZ  ',
+        'abc1',
+        '  foo  ',
+        '',
+        'ÄBC',
+        'Heiß',
+        'ЫыЪъЭэ',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['el-GR'],
+    valid: [
+        'αβγδεζηθικλμνξοπρςστυφχψω',
+        'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ',
+        'άέήίΰϊϋόύώ',
+        'ΆΈΉΊΪΫΎΏ',
+    ],
+    invalid: [
+        '0AİıÖöÇçŞşĞğÜüZ1',
+        '  AİıÖöÇçŞşĞğÜüZ  ',
+        'ÄBC',
+        'Heiß',
+        'ЫыЪъЭэ',
+        '120',
+        'jαckγ',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['he'],
+    valid: [
+        'בדיקה',
+        'שלום',
+    ],
+    invalid: [
+        'בדיקה123',
+        '  foo  ',
+        'abc1',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlpha',
+    args: ['is-NOT'],
+    error: [
+        'abc',
+        'ABC',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    valid: [
+        'abc123',
+        'ABC11',
+    ],
+    invalid: [
+        'abc ',
+        'foo!!',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['en-GB'],
+    valid: [
+        'abc123',
+        'ABC11',
+    ],
+    invalid: [
+        'abc ',
+        'foo!!',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['bg-BG'],
+    valid: [
+        'абв1',
+        '4АБ5В6',
+        'жаба',
+        'яГоДа2',
+        'йЮя',
+        '123',
+    ],
+    invalid: [
+        ' ',
+        '789  ',
+        'hello000',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['cs-CZ'],
+    valid: [
+        'řiť123',
+        'KŮŇ11',
+    ],
+    invalid: [
+        'řiď ',
+        'blé!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['sk-SK'],
+    valid: [
+        '1môj',
+        '2ľúbím',
+        '3mäkčeň',
+        '4stĹp',
+        '5vŕba',
+        '6ňorimberk',
+        '7ťava',
+        '8žanéta',
+        '9Ďábelské',
+        '10ódy',
+    ],
+    invalid: [
+        '1moj!',
+        '你好世界',
+        '  Привет мир  ',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['da-DK'],
+    valid: [
+        'ÆØÅ123',
+        'Ære321',
+        '321Øre',
+        '123Åre',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['nl-NL'],
+    valid: [
+        'Kán123',
+        'één354',
+        'v4óór',
+        'nú234',
+        'hé54él',
+    ],
+    invalid: [
+        '1äca ',
+        'ab3cß',
+        'Øre',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['de-DE'],
+    valid: [
+        'äbc123',
+        'ÄBC11',
+    ],
+    invalid: [
+        'äca ',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['hu-HU'],
+    valid: [
+        '0árvíztűrőtükörfúrógép123',
+        '0ÁRVÍZTŰRŐTÜKÖRFÚRÓGÉP123',
+    ],
+    invalid: [
+        '1időúr!',
+        'äbc1',
+        '  fäö  ',
+        'Heiß!',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['pt-PT'],
+    valid: [
+        'palíndromo',
+        '2órgão',
+        'qwértyúão9',
+        'àäãcë4üïÄÏÜ',
+    ],
+    invalid: [
+        '!abc',
+        'Heiß',
+        'Øre',
+        'æøå',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['it-IT'],
+    valid: [
+        '123àéèìîóòù',
+        '123correnti',
+        'DEFINIZIONE321',
+        'compil123azione',
+        'met23ró',
+        'pès56ca',
+        'PÉS45CA',
+        'gen45î',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        'æøå',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['es-ES'],
+    valid: [
+        'ábcó123',
+        'ÁBCÓ11',
+    ],
+    invalid: [
+        'äca ',
+        'abcß',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['ar'],
+    valid: [
+        'أبت123',
+        'أبتَُِ١٢٣',
+    ],
+    invalid: [
+        'äca ',
+        'abcß',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['fa-IR'],
+    valid: [
+        'پارسی۱۲۳',
+        '۱۴۵۶',
+        'مژگان9',
+    ],
+    invalid: [
+        'äca ',
+        'abcßة',
+        'föö!!',
+        '٤٥٦',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['ku-IQ'],
+    valid: [
+        'ئؤڤگێ١٢٣',
+    ],
+    invalid: [
+        'äca ',
+        'abcß',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['ar-SY'],
+    valid: [
+        'أبت123',
+        'أبتَُِ١٢٣',
+    ],
+    invalid: [
+        'abc ',
+        'foo!!',
+        'ÄBC',
+        'FÜübar',
+        'Jön',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['nb-NO'],
+    valid: [
+        'ÆØÅ123',
+        'Ære321',
+        '321Øre',
+        '123Åre',
+    ],
+    invalid: [
+        'äbc123',
+        'ÄBC11',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['pl-PL'],
+    valid: [
+        'kre123ską',
+        'zam21knięte',
+        'zw23ykłe',
+        '123',
+        'prz23yjęły',
+        'świ23ęty',
+        'Poz1322wól',
+    ],
+    invalid: [
+        '12řiď ',
+        'blé!!',
+        'föö!2!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['sr-RS'],
+    valid: [
+        'ШћжЂљЕ123',
+        'ЧПСТ132ЋЏ',
+    ],
+    invalid: [
+        'řiď ',
+        'blé!!',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['sr-RS@latin'],
+    valid: [
+        'ŠAabčšđćž123',
+        'ŠATRO11Ćčđš',
+    ],
+    invalid: [
+        'řiď ',
+        'blé!!',
+        'föö!!',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['sv-SE'],
+    valid: [
+        'religiös13',
+        'st23jäla',
+        'västgöte123',
+        '123Åre',
+    ],
+    invalid: [
+        'AİıÖöÇçŞşĞğÜüZ',
+        'foo!!',
+        '',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['tr-TR'],
+    valid: [
+        'AİıÖöÇçŞşĞğÜüZ123',
+    ],
+    invalid: [
+        'AİıÖöÇçŞşĞğÜüZ ',
+        'foo!!',
+        'ÄBC',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['uk-UA'],
+    valid: [
+        'АБВГҐДЕЄЖЗИIЇЙКЛМНОПРСТУФХЦШЩЬЮЯ123',
+    ],
+    invalid: [
+        'éeoc ',
+        'foo!!',
+        'ÄBC',
+        'ЫыЪъЭэ',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['el-GR'],
+    valid: [
+        'αβγδεζηθικλμνξοπρςστυφχψω',
+        'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ',
+        '20θ',
+        '1234568960',
+    ],
+    invalid: [
+        '0AİıÖöÇçŞşĞğÜüZ1',
+        '  AİıÖöÇçŞşĞğÜüZ  ',
+        'ÄBC',
+        'Heiß',
+        'ЫыЪъЭэ',
+        'jαckγ',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['he'],
+    valid: [
+        'אבג123',
+        'שלום11',
+    ],
+    invalid: [
+        'אבג ',
+        'לא!!',
+        'abc',
+        '  foo  ',
+    ],
+});
+
+test({
+    validator: 'isAlphanumeric',
+    args: ['is-NOT'],
+    error: [
+        '1234568960',
+        'abc123',
+    ],
 });
 
 test({
@@ -90,40 +934,8 @@ test({
         'Zm=8',
         '=m9vYg==',
         'Zm9vYmFy====',
-    ]
-})
-
-test({
-    validator: 'isBase64',
-    valid: [
-        'Zg==',
-        'Zm8=',
-        'Zm9v',
-        'Zm9vYg==',
-        'Zm9vYmE=',
-        'Zm9vYmFy',
-        'TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4=',
-        'Vml2YW11cyBmZXJtZW50dW0gc2VtcGVyIHBvcnRhLg==',
-        'U3VzcGVuZGlzc2UgbGVjdHVzIGxlbw==',
-        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMPNS1Ufof9EW/M98FNw' +
-        'UAKrwflsqVxaxQjBQnHQmiI7Vac40t8x7pIb8gLGV6wL7sBTJiPovJ0V7y7oc0Ye' +
-        'rhKh0Rm4skP2z/jHwwZICgGzBvA0rH8xlhUiTvcwDCJ0kc+fh35hNt8srZQM4619' +
-        'FTgB66Xmp4EtVyhpQV+t02g6NzK72oZI0vnAvqhpkxLeLiMCyrI416wHm5Tkukhx' +
-        'QmcL2a6hNOyu0ixX/x2kSFXApEnVrJ+/IxGyfyw8kf4N2IZpW5nEP847lpfj0SZZ' +
-        'Fwrd1mnfnDbYohX2zRptLy2ZUn06Qo9pkG5ntvFEPo9bfZeULtjYzIl6K8gJ2uGZ' +
-        'HQIDAQAB',
     ],
-    invalid: [
-        '12345',
-        '',
-        'Vml2YW11cyBmZXJtZtesting123',
-        'Zg=',
-        'Z===',
-        'Zm=8',
-        '=m9vYg==',
-        'Zm9vYmFy====',
-    ],
-})
+});
 
 test({
     validator: 'isBIC',
@@ -141,7 +953,7 @@ test({
         'SBICKEN13458',
         'SBICKEN',
     ],
-})
+});
 
 
 test({
@@ -160,7 +972,7 @@ test({
         'True',
         'yes',
     ],
-})
+});
 
 
 test({
@@ -175,7 +987,7 @@ test({
         '0x56F0B8A998425c53c75C4A303D4eF987533c5597',
         'pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g',
     ],
-})
+});
 
 test({
     validator: 'isCreditCard',
@@ -281,7 +1093,7 @@ test({
         'a',
         '\n',
     ],
-})
+});
 
 
 // test({
@@ -296,7 +1108,7 @@ test({
 //         '',
 //         '2020-01-06T14:31:00.135Z',
 //     ],
-// })
+// });
 
 test({
     validator: 'isEmpty',
@@ -354,7 +1166,7 @@ test({
         '683E07492fBDfDA84457C16546ac3f433BFaa128',
         '1C6o5CDkLxjsVpnLSuqRs1UBFozXLEwYvU',
     ],
-})
+});
 
 // test({
 //     validator: 'isFloat',
@@ -382,7 +1194,7 @@ test({
 //         '20.foo',
 //         '2020-01-06T14:31:00.135Z',
 //     ],
-// })
+// });
 
 test({
     validator: 'isFullWidth',
@@ -422,7 +1234,7 @@ test({
 //         '=m9vYg==',
 //         'Zm9vYm/y====',
 //     ],
-// })
+// });
 
 test({
     validator: 'isHalfWidth',
@@ -435,9 +1247,150 @@ test({
     invalid: [
         'あいうえお',
         '００１１',
-    ]
+    ],
 });
 
+['md5', 'md4', 'ripemd128', 'tiger128'].forEach((algorithm) => {
+    test({
+        validator: 'isHash',
+        args: [algorithm],
+        valid: [
+            'd94f3f016ae679c3008de268209132f2',
+            '751adbc511ccbe8edf23d486fa4581cd',
+            '88dae00e614d8f24cfd5a8b3f8002e93',
+            '0bf1c35032a71a14c2f719e5a14c1e96',
+            'd94f3F016Ae679C3008de268209132F2',
+            '88DAE00e614d8f24cfd5a8b3f8002E93',
+        ],
+        invalid: [
+            'q94375dj93458w34',
+            '39485729348',
+            '%&FHKJFvk',
+            'KYT0bf1c35032a71a14c2f719e5a1',
+        ],
+    });
+});
+
+['crc32', 'crc32b'].forEach((algorithm) => {
+    test({
+        validator: 'isHash',
+        args: [algorithm],
+        valid: [
+            'd94f3f01',
+            '751adbc5',
+            '88dae00e',
+            '0bf1c350',
+            '88DAE00e',
+            '751aDBc5',
+        ],
+        invalid: [
+            'KYT0bf1c35032a71a14c2f719e5a14c1',
+            'q94375dj93458w34',
+            'q943',
+            '39485729348',
+            '%&FHKJFvk',
+        ],
+    });
+});
+
+['sha1', 'tiger160', 'ripemd160'].forEach((algorithm) => {
+    test({
+        validator: 'isHash',
+        args: [algorithm],
+        valid: [
+            '3ca25ae354e192b26879f651a51d92aa8a34d8d3',
+            'aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d',
+            'beb8c3f30da46be179b8df5f5ecb5e4b10508230',
+            'efd5d3b190e893ed317f38da2420d63b7ae0d5ed',
+            'AAF4c61ddCC5e8a2dabede0f3b482cd9AEA9434D',
+            '3ca25AE354e192b26879f651A51d92aa8a34d8D3',
+        ],
+        invalid: [
+            'KYT0bf1c35032a71a14c2f719e5a14c1',
+            'KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk',
+            'q94375dj93458w34',
+            '39485729348',
+            '%&FHKJFvk',
+        ],
+    });
+});
+
+test({
+    validator: 'isHash',
+    args: ['sha256'],
+    valid: [
+        '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824',
+        '1d996e033d612d9af2b44b70061ee0e868bfd14c2dd90b129e1edeb7953e7985',
+        '80f70bfeaed5886e33536bcfa8c05c60afef5a0e48f699a7912d5e399cdcc441',
+        '579282cfb65ca1f109b78536effaf621b853c9f7079664a3fbe2b519f435898c',
+        '2CF24dba5FB0a30e26E83b2AC5b9E29E1b161e5C1fa7425E73043362938b9824',
+        '80F70bFEAed5886e33536bcfa8c05c60aFEF5a0e48f699a7912d5e399cdCC441',
+    ],
+    invalid: [
+        'KYT0bf1c35032a71a14c2f719e5a14c1',
+        'KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk',
+        'q94375dj93458w34',
+        '39485729348',
+        '%&FHKJFvk',
+    ],
+});
+test({
+    validator: 'isHash',
+    args: ['sha384'],
+    valid: [
+        '3fed1f814d28dc5d63e313f8a601ecc4836d1662a19365cbdcf6870f6b56388850b58043f7ebf2418abb8f39c3a42e31',
+        'b330f4e575db6e73500bd3b805db1a84b5a034e5d21f0041d91eec85af1dfcb13e40bb1c4d36a72487e048ac6af74b58',
+        'bf547c3fc5841a377eb1519c2890344dbab15c40ae4150b4b34443d2212e5b04aa9d58865bf03d8ae27840fef430b891',
+        'fc09a3d11368386530f985dacddd026ae1e44e0e297c805c3429d50744e6237eb4417c20ffca8807b071823af13a3f65',
+        '3fed1f814d28dc5d63e313f8A601ecc4836d1662a19365CBDCf6870f6b56388850b58043f7ebf2418abb8f39c3a42e31',
+        'b330f4E575db6e73500bd3b805db1a84b5a034e5d21f0041d91EEC85af1dfcb13e40bb1c4d36a72487e048ac6af74b58',
+    ],
+    invalid: [
+        'KYT0bf1c35032a71a14c2f719e5a14c1',
+        'KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk',
+        'q94375dj93458w34',
+        '39485729348',
+        '%&FHKJFvk',
+    ],
+});
+test({
+    validator: 'isHash',
+    args: ['sha512'],
+    valid: [
+        '9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043',
+        '83c586381bf5ba94c8d9ba8b6b92beb0997d76c257708742a6c26d1b7cbb9269af92d527419d5b8475f2bb6686d2f92a6649b7f174c1d8306eb335e585ab5049',
+        '45bc5fa8cb45ee408c04b6269e9f1e1c17090c5ce26ffeeda2af097735b29953ce547e40ff3ad0d120e5361cc5f9cee35ea91ecd4077f3f589b4d439168f91b9',
+        '432ac3d29e4f18c7f604f7c3c96369a6c5c61fc09bf77880548239baffd61636d42ed374f41c261e424d20d98e320e812a6d52865be059745fdb2cb20acff0ab',
+        '9B71D224bd62f3785D96d46ad3ea3d73319bFBC2890CAAdae2dff72519673CA72323C3d99ba5c11d7c7ACC6e14b8c5DA0c4663475c2E5c3adef46f73bcDEC043',
+        '432AC3d29E4f18c7F604f7c3c96369A6C5c61fC09Bf77880548239baffd61636d42ed374f41c261e424d20d98e320e812a6d52865be059745fdb2cb20acff0ab',
+    ],
+    invalid: [
+        'KYT0bf1c35032a71a14c2f719e5a14c1',
+        'KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk',
+        'q94375dj93458w34',
+        '39485729348',
+        '%&FHKJFvk',
+    ],
+});
+test({
+    validator: 'isHash',
+    args: ['tiger192'],
+    valid: [
+        '6281a1f098c5e7290927ed09150d43ff3990a0fe1a48267c',
+        '56268f7bc269cf1bc83d3ce42e07a85632394737918f4760',
+        '46fc0125a148788a3ac1d649566fc04eb84a746f1a6e4fa7',
+        '7731ea1621ae99ea3197b94583d034fdbaa4dce31a67404a',
+        '6281A1f098c5e7290927ed09150d43ff3990a0fe1a48267C',
+        '46FC0125a148788a3AC1d649566fc04eb84A746f1a6E4fa7',
+    ],
+    invalid: [
+        'KYT0bf1c35032a71a14c2f719e5a14c1',
+        'KYT0bf1c35032a71a14c2f719e5a14c1dsjkjkjkjkkjk',
+        'q94375dj93458w34',
+        '39485729348',
+        '%&FHKJFvk',
+    ],
+});
 
 test({
     validator: 'isHexadecimal',
@@ -455,7 +1408,7 @@ test({
         '0hfedCBA9876543210q',
         '01234q56789abcDEF',
     ],
-})
+});
 
 
 test({
@@ -473,7 +1426,7 @@ test({
         'fff0a',
         '#ff12FG',
     ],
-})
+});
 
 
 test({
@@ -520,7 +1473,46 @@ test({
         'hsl(, 60%, 70%)',
         'hsl(3000deg, 70%)',
     ],
-})
+});
+
+test({
+    validator: 'isIn',
+    args: ['foobar'],
+    valid: ['foo', 'bar', 'foobar', ''],
+    invalid: ['foobarbaz', 'barfoo'],
+});
+test({
+    validator: 'isIn',
+    args: [['foo', 'bar']],
+    valid: ['foo', 'bar'],
+    invalid: ['foobar', 'barfoo', ''],
+});
+test({
+    validator: 'isIn',
+    args: [['1', '2', '3']],
+    valid: ['1', '2', '3'],
+    invalid: ['4', ''],
+});
+test({
+    validator: 'isIn',
+    args: [['1', '2', '3', { foo: 'bar' }, () => 5, { toString: 'test' }]],
+    valid: ['1', '2', '3', ''],
+    invalid: ['4'],
+});
+test({ validator: 'isIn', invalid: ['foo', ''] });
+
+test({
+    validator: 'isIn',
+    args: [{ foo: 1, bar: 2, foobar: 3 }],
+    valid: ['foo', 'bar', 'foobar'],
+    invalid: ['foobarbaz', 'barfoo', ''],
+});
+test({
+    validator: 'isIn',
+    args: [{ 1: 3, 2: 0, 3: 1 }],
+    valid: ['1', '2', '3'],
+    invalid: ['4', ''],
+});
 
 test({
     validator: 'isInt',
@@ -666,7 +1658,7 @@ test({
         'false',
         '"nope"',
     ],
-})
+});
 
 
 
@@ -684,7 +1676,7 @@ test({
         '$Zs.ewu.su84',
         'ks64$S/9.dy$§kz.3sd73b',
     ],
-})
+});
 
 
 test({
@@ -744,7 +1736,7 @@ test({
         ',',
         ' ',
     ],
-})
+});
 
 
 
@@ -764,27 +1756,6 @@ test({
         'lo_POP',
         '12',
         '12_DD',
-    ]
-})
-
-
-
-
-
-
-test({
-    validator: 'isJWT',
-    valid: [
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb3JlbSI6Imlwc3VtIn0.ymiJSsMJXR6tMSr8G9usjQ15_8hKPDv_CArLhxw28MI',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2xvciI6InNpdCIsImFtZXQiOlsibG9yZW0iLCJpcHN1bSJdfQ.rRpe04zbWbbJjwM43VnHzAboDzszJtGrNsUxaqQ-GQ8',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqb2huIjp7ImFnZSI6MjUsImhlaWdodCI6MTg1fSwiamFrZSI6eyJhZ2UiOjMwLCJoZWlnaHQiOjI3MH19.YRLPARDmhGMC3BBk_OhtwwK21PIkVCqQe8ncIRPKo-E',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', // No signature
-    ],
-    invalid: [
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
-        '$Zs.ewu.su84',
-        'ks64$S/9.dy$§kz.3sd73b',
     ],
 });
 
@@ -852,6 +1823,7 @@ test({
         'magnet:?xt:btih:HS263FG8U3GFIDHWD7829BYFCIXB78XIHG7CWCUG&dn=foz&tr=udp://foz.com:1337',
     ],
 });
+
 test({
     validator: 'isMD5',
     valid: [
@@ -867,6 +1839,7 @@ test({
         '%&FHKJFvk',
     ],
 });
+
 test({
     validator: 'isMimeType',
     valid: [
@@ -911,6 +1884,7 @@ test({
         'video/mp4; charset=utf-8',
     ],
 });
+
 test({
     validator: 'isMongoId',
     valid: [
@@ -923,6 +1897,7 @@ test({
         '507f1f77bcf86cd799439011 ',
     ],
 });
+
 test({
     validator: 'isMultibyte',
     valid: [
@@ -1178,11 +2153,11 @@ test({
 });
 
 test({
-    validator: 'isSurrogatePair',    
+    validator: 'isSurrogatePair',
     valid: [
-    '𠮷野𠮷',
-    '𩸽',
-    'ABC千𥧄1-2-3',
+        '𠮷野𠮷',
+        '𩸽',
+        'ABC千𥧄1-2-3',
     ],
     invalid: [
         '吉野竈',
@@ -1239,6 +2214,7 @@ test({
         'A987FBC9-4BED-5078-AF07-9141BA07C9F3',
     ],
 });
+
 test({
     validator: 'isUUID',
     args: [4],
