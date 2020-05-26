@@ -1,9 +1,5 @@
-import assertString from './util/assertString.ts';
-
 const ascii = /^[\x00-\x7F]+$/;
 
-
-export default function isAscii(str: string) {
-  assertString(str);
+export default function isAscii(str: string): boolean {
   return ascii.test(str);
 }
