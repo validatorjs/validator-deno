@@ -8,7 +8,7 @@ interface Options {
     validator: string,
     valid?: string[],
     invalid?: string[],
-    args?: (string | { [key: string]: any })[]
+    args?: (number | string | { [key: string]: any })[]
 }
 
 export default function test(options: Options): void {

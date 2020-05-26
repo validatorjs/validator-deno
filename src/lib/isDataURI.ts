@@ -1,5 +1,3 @@
-import assertString from './util/assertString.ts';
-
 const validMediaType: RegExp = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 
 const validAttribute: RegExp = /^[a-z\-]+=[a-z0-9\-]+$/i;
@@ -7,7 +5,6 @@ const validAttribute: RegExp = /^[a-z\-]+=[a-z0-9\-]+$/i;
 const validData: RegExp = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
 
 export default function isDataURI(str: string): boolean {
-  assertString(str);
   let data: any[] = str.split(',');
   if (data.length < 2) {
     return false;
