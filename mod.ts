@@ -4,7 +4,7 @@ import blacklist from "./src/lib/blacklist.ts";
 import escape from "./src/lib/escape.ts";
 
 // validator version
-const version = "1.0.0";
+const version = "1.0.0-beta";
 
 // validators
 import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
