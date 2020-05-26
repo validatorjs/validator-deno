@@ -15,6 +15,8 @@ import isBase64 from "./src/lib/isBase64.ts";
 import isBIC from "./src/lib/isBIC.ts";
 import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
+import isCreditCard from "./src/lib/isCreditCard.ts";
+import isDataURI from "./src/lib/isDataURI.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
@@ -24,6 +26,7 @@ import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
+import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
 import isJSON from "./src/lib/isJSON.ts";
 import isJWT from "./src/lib/isJWT.ts";
@@ -37,12 +40,17 @@ import isMimeType from "./src/lib/isMimeType.ts";
 import isMongoId from "./src/lib/isMongoId.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
+import isOctal from "./src/lib/isOctal.ts";
+import isPort from "./src/lib/isPort.ts";
 import isRFC3339 from "./src/lib/isRFC3339.ts";
 import isRgbColor from "./src/lib/isRgbColor.ts";
 import isSemVer from "./src/lib/isSemVer.ts";
 import isSlug from "./src/lib/isSlug.ts";
 import isSurrogatePair from "./src/lib/isSurrogatePair.ts";
+import isUUID from "./src/lib/isUUID.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
+import isVariableWidth from "./src/lib/isVariableWidth.ts";
+import isWhitelisted from "./src/lib/isWhitelisted.ts";
 
 // For testing (resolving keys as string)
 interface ValidatorMap {
@@ -64,6 +72,8 @@ const validator : ValidatorMap = {
   isBIC,
   isBoolean,
   isBtcAddress,
+  isCreditCard,
+  isDataURI,
   isDecimal,
   isEmpty,
   isEthereumAddress,
@@ -73,6 +83,7 @@ const validator : ValidatorMap = {
   isHexadecimal,
   isHexColor,
   isHSL,
+  isIn,
   isInt,
   isJSON,
   isJWT,
@@ -86,12 +97,17 @@ const validator : ValidatorMap = {
   isMongoId,
   isMultibyte,
   isNumeric,
+  isOctal,
+  isPort,
   isRFC3339,
   isRgbColor,
   isSemVer,
   isSlug,
   isSurrogatePair,
   isUpperCase,
+  isUUID,
+  isVariableWidth,
+  isWhitelisted,
   version
 };
 

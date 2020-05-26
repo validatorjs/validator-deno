@@ -177,6 +177,72 @@ test({
     ],
 })
 
+test({
+    validator: 'isCreditCard',
+    valid: [
+        '375556917985515',
+        '36050234196908',
+        '4716461583322103',
+        '4716-2210-5188-5662',
+        '4929 7226 5379 7141',
+        '5398228707871527',
+        '6283875070985593',
+        '6263892624162870',
+        '6234917882863855',
+        '6234698580215388',
+        '6226050967750613',
+        '6246281879460688',
+        '2222155765072228',
+        '2225855203075256',
+        '2720428011723762',
+        '2718760626256570',
+        '6765780016990268',
+        '4716989580001715211',
+    ],
+    invalid: [
+        'foo',
+        'foo',
+        '5398228707871528',
+        '2718760626256571',
+        '2721465526338453',
+        '2220175103860763',
+        '375556917985515999999993',
+        '899999996234917882863855',
+        'prefix6234917882863855',
+        '623491788middle2863855',
+        '6234917882863855suffix',
+        '4716989580001715213',
+    ],
+});
+
+test({
+    validator: 'isDataURI',
+    valid: [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAAFVBMVEXk5OTn5+ft7e319fX29vb5+fn///++GUmVAAAALUlEQVQIHWNICnYLZnALTgpmMGYIFWYIZTA2ZFAzTTFlSDFVMwVyQhmAwsYMAKDaBy0axX/iAAAAAElFTkSuQmCC',
+        '   data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAAFVBMVEXk5OTn5+ft7e319fX29vb5+fn///++GUmVAAAALUlEQVQIHWNICnYLZnALTgpmMGYIFWYIZTA2ZFAzTTFlSDFVMwVyQhmAwsYMAKDaBy0axX/iAAAAAElFTkSuQmCC   ',
+        'data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20fill%3D%22%2300B1FF%22%20width%3D%22100%22%20height%3D%22100%22%2F%3E%3C%2Fsvg%3E',
+        'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCBmaWxsPSIjMDBCMUZGIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIvPjwvc3ZnPg==',
+        ' data:,Hello%2C%20World!',
+        ' data:,Hello World!',
+        ' data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D',
+        ' data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E',
+        'data:,A%20brief%20note',
+        'data:text/html;charset=US-ASCII,%3Ch1%3EHello!%3C%2Fh1%3E',
+    ],
+    invalid: [
+        'dataxbase64',
+        'data:HelloWorld',
+        'data:,A%20brief%20invalid%20[note',
+        'file:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D',
+        'data:text/html;charset=,%3Ch1%3EHello!%3C%2Fh1%3E',
+        'data:text/html;charset,%3Ch1%3EHello!%3C%2Fh1%3E', 'data:base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
+        '',
+        'http://wikipedia.org',
+        'base64',
+        'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
+    ],
+});
 
 test({
     validator: 'isDecimal',
@@ -872,6 +938,9 @@ test({
         '<>@" *.',
     ],
 });
+
+
+
 test({
     validator: 'isNumeric',
     valid: [
@@ -913,6 +982,41 @@ test({
         '.',
     ],
 });
+
+
+test({
+    validator: 'isOctal',
+    valid: [
+        '076543210',
+        '0o01234567',
+    ],
+    invalid: [
+        'abcdefg',
+        '012345678',
+        '012345670c',
+        '00c12345670c',
+        '',
+        '..',
+    ],
+});
+
+// test({
+//     validator: 'isPort',
+//     valid: [
+//         '0',
+//         '22',
+//         '80',
+//         '443',
+//         '3000',
+//         '8080',
+//         '65535',
+//     ],
+//     invalid: [
+//         '',
+//         '-1',
+//         '65536',
+//     ],
+// });
 
 test({
     validator: 'isRFC3339',
@@ -1098,4 +1202,102 @@ test({
         'fooBar',
         '123abc',
     ],
+});
+
+test({
+    validator: 'isUUID',
+    valid: [
+        'A987FBC9-4BED-3078-CF07-9141BA07C9F3',
+        'A987FBC9-4BED-4078-8F07-9141BA07C9F3',
+        'A987FBC9-4BED-5078-AF07-9141BA07C9F3',
+    ],
+    invalid: [
+        '',
+        'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+        'A987FBC9-4BED-3078-CF07-9141BA07C9F3xxx',
+        'A987FBC94BED3078CF079141BA07C9F3',
+        '934859',
+        '987FBC9-4BED-3078-CF07A-9141BA07C9F3',
+        'AAAAAAAA-1111-1111-AAAG-111111111111',
+    ],
+});
+
+
+// test({
+//     validator: 'isUUID',
+//     args: [3],
+//     valid: [
+//         'A987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//     ],
+//     invalid: [
+//         '',
+//         'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//         '934859',
+//         'AAAAAAAA-1111-1111-AAAG-111111111111',
+//         'A987FBC9-4BED-4078-8F07-9141BA07C9F3',
+//         'A987FBC9-4BED-5078-AF07-9141BA07C9F3',
+//     ],
+// });
+// test({
+//     validator: 'isUUID',
+//     args: [4],
+//     valid: [
+//         '713ae7e3-cb32-45f9-adcb-7c4fa86b90c1',
+//         '625e63f3-58f5-40b7-83a1-a72ad31acffb',
+//         '57b73598-8764-4ad0-a76a-679bb6640eb1',
+//         '9c858901-8a57-4791-81fe-4c455b099bc9',
+//     ],
+//     invalid: [
+//         '',
+//         'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//         '934859',
+//         'AAAAAAAA-1111-1111-AAAG-111111111111',
+//         'A987FBC9-4BED-5078-AF07-9141BA07C9F3',
+//         'A987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//     ],
+// });
+
+// test({
+//     validator: 'isUUID',
+//     args: [5],
+//     valid: [
+//         '987FBC97-4BED-5078-AF07-9141BA07C9F3',
+//         '987FBC97-4BED-5078-BF07-9141BA07C9F3',
+//         '987FBC97-4BED-5078-8F07-9141BA07C9F3',
+//         '987FBC97-4BED-5078-9F07-9141BA07C9F3',
+//     ],
+//     invalid: [
+//         '',
+//         'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//         '934859',
+//         'AAAAAAAA-1111-1111-AAAG-111111111111',
+//         '9c858901-8a57-4791-81fe-4c455b099bc9',
+//         'A987FBC9-4BED-3078-CF07-9141BA07C9F3',
+//     ],
+// });
+
+
+test({
+    validator: 'isVariableWidth',
+    valid: [
+        'ひらがなカタカナ漢字ABCDE',
+        '３ー０123',
+        'Ｆｶﾀｶﾅﾞﾬ',
+        'Good＝Parts',
+    ],
+    invalid: [
+        'abc',
+        'abc123',
+        '!"#$%&()<>/+=-_? ~^|.,@`{}[]',
+        'ひらがな・カタカナ、．漢字',
+        '１２３４５６',
+        'ｶﾀｶﾅﾞﾬ',
+    ],
+});
+
+test({
+    validator: 'isWhitelisted',
+    args: ['abcdefghijklmnopqrstuvwxyz-'],
+    valid: ['foo', 'foobar', 'baz-foo'],
+    invalid: ['foo bar', 'fo.bar', 'türkçe'],
 });
