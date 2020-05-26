@@ -5,21 +5,21 @@ test({
     args: ['abc'],
     valid: ['abc'],
     invalid: ['Abc', '123']
-})
+});
 
 test({
     validator: 'equals',
     args: ['abc ', { trim: true }],
     valid: ['  abc  '],
     invalid: ['Abc', '123']
-})
+});
 
 test({
     validator: 'equals',
     args: ['abc', { ignore_case: true }],
     valid: ['abc', 'AbC'],
     invalid: ['@bc', '123']
-})
+});
 
 test({
     validator: 'isAscii',
@@ -35,7 +35,7 @@ test({
         '１２３456',
         'ｶﾀｶﾅ',
     ],
-})
+});
 
 test({
     validator: 'isBase32',
@@ -59,6 +59,38 @@ test({
         '=m9vYg==',
         'Zm9vYm/y====',
     ],
+});
+
+test({
+    validator: 'isBase64',
+    valid: [
+        'Zg==',
+        'Zm8=',
+        'Zm9v',
+        'Zm9vYg==',
+        'Zm9vYmE=',
+        'Zm9vYmFy',
+        'TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4=',
+        'Vml2YW11cyBmZXJtZW50dW0gc2VtcGVyIHBvcnRhLg==',
+        'U3VzcGVuZGlzc2UgbGVjdHVzIGxlbw==',
+        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMPNS1Ufof9EW/M98FNw' +
+        'UAKrwflsqVxaxQjBQnHQmiI7Vac40t8x7pIb8gLGV6wL7sBTJiPovJ0V7y7oc0Ye' +
+        'rhKh0Rm4skP2z/jHwwZICgGzBvA0rH8xlhUiTvcwDCJ0kc+fh35hNt8srZQM4619' +
+        'FTgB66Xmp4EtVyhpQV+t02g6NzK72oZI0vnAvqhpkxLeLiMCyrI416wHm5Tkukhx' +
+        'QmcL2a6hNOyu0ixX/x2kSFXApEnVrJ+/IxGyfyw8kf4N2IZpW5nEP847lpfj0SZZ' +
+        'Fwrd1mnfnDbYohX2zRptLy2ZUn06Qo9pkG5ntvFEPo9bfZeULtjYzIl6K8gJ2uGZ' +
+        'HQIDAQAB',
+    ],
+    invalid: [
+        '12345',
+        '',
+        'Vml2YW11cyBmZXJtZtesting123',
+        'Zg=',
+        'Z===',
+        'Zm=8',
+        '=m9vYg==',
+        'Zm9vYmFy====',
+    ]
 })
 
 test({
@@ -299,7 +331,7 @@ test({
         'abc123',
         '!"#$%&()<>/+=-_? ~^|.,@`{}[]',
     ],
-})
+});
 
 
 // test({
@@ -338,7 +370,7 @@ test({
         'あいうえお',
         '００１１',
     ]
-})
+});
 
 
 // test({
@@ -551,6 +583,22 @@ test({
 });
 
 test({
+    validator: 'isJWT',
+    valid: [
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb3JlbSI6Imlwc3VtIn0.ymiJSsMJXR6tMSr8G9usjQ15_8hKPDv_CArLhxw28MI',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2xvciI6InNpdCIsImFtZXQiOlsibG9yZW0iLCJpcHN1bSJdfQ.rRpe04zbWbbJjwM43VnHzAboDzszJtGrNsUxaqQ-GQ8',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqb2huIjp7ImFnZSI6MjUsImhlaWdodCI6MTg1fSwiamFrZSI6eyJhZ2UiOjMwLCJoZWlnaHQiOjI3MH19.YRLPARDmhGMC3BBk_OhtwwK21PIkVCqQe8ncIRPKo-E',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', // No signature
+    ],
+    invalid: [
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
+        '$Zs.ewu.su84',
+        'ks64$S/9.dy$§kz.3sd73b',
+    ],
+});
+
+test({
     validator: 'isLowerCase',
     valid: [
         'abc',
@@ -562,7 +610,7 @@ test({
         'fooBar',
         '123A',
     ],
-})
+});
 
 test({
     validator: 'isUpperCase',

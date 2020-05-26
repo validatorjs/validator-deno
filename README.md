@@ -1,5 +1,6 @@
 # validator.js
 
+![CI](https://github.com/validatorjs/validator-deno/workflows/CI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A library for validating and sanitizing strings, inspired by the popular [validator.js](https://github.com/validatorjs/validator.js)
@@ -10,7 +11,7 @@ A library for validating and sanitizing strings, inspired by the popular [valida
 ## Usage
 
 ```typescript
-import validator from "https://deno.land/x/validatorjs/mod.ts";
+import validator from "https://deno.land/x/deno_validator/mod.ts";
 
 validator.isEmail('foo@bar.com'); //=> true
 ```
@@ -24,6 +25,7 @@ Here is a list of the validators currently available.
 | **equals(str, comparison [, options])** | check if the string matches the comparison.<br/><br/>`options` is an object which defaults to `{ trim: false, ignore_case: false }`. |
 | **isAscii(str)** | check if the string contains ASCII chars only. |
 | **isBase32(str)** | check if a string is base32 encoded. |
+| **isBase64(str)** | check if a string is base64 encoded. |
 | **isEmpty(str [, options])** | check if the string has a length of zero. <br/><br/>`options` is an object which defaults to `{ ignore_whitespace:false }`. |
 | **isFullWidth(str)** | check if the string contains any full-width chars. |
 | **isHalfWidth(str)** | check if the string contains any half-width chars. |
