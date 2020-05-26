@@ -1,0 +1,25 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    name: ${{ matrix.config.kind }} ${{ matrix.config.os }}
+    runs-on: ${{ matrix.config.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        config:
+          - os: macOS-latest
+            kind: test
+          - os: windows-latest
+            kind: test
+          - os: ubuntu-latest
+            kind: test
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Install deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: 1.0.0
+      - name: Test
+        run: deno test
