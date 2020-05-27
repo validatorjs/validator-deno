@@ -51,7 +51,7 @@ import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
 import isPassportNumber from "./src/lib/isPassportNumber.ts";
 import isPort from "./src/lib/isPort.ts";
-import isPostalCode from "./src/lib/isPostalCode.ts";
+import isPostalCode, {locales as postalCodeLocales} from "./src/lib/isPostalCode.ts";
 import isIP from "./src/lib/isIP.ts";
 import isIPRange from "./src/lib/isIPRange.ts";
 import isRFC3339 from "./src/lib/isRFC3339.ts";
@@ -131,6 +131,7 @@ const validator : ValidatorMap = {
   isUUID,
   isVariableWidth,
   isWhitelisted,
+  postalCodeLocales,
   version
 };
 
