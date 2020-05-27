@@ -57,7 +57,11 @@ import isMongoId from "./src/lib/isMongoId.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
+import isPassportNumber from "./src/lib/isPassportNumber.ts";
 import isPort from "./src/lib/isPort.ts";
+import isPostalCode, {
+  locales as postalCodeLocales,
+} from "./src/lib/isPostalCode.ts";
 import isRFC3339 from "./src/lib/isRFC3339.ts";
 import isRgbColor from "./src/lib/isRgbColor.ts";
 import isSemVer from "./src/lib/isSemVer.ts";
@@ -125,7 +129,9 @@ const validator: ValidatorMap = {
   isMultibyte,
   isNumeric,
   isOctal,
+  isPassportNumber,
   isPort,
+  isPostalCode,
   isRFC3339,
   isRgbColor,
   isSemVer,
@@ -135,6 +141,7 @@ const validator: ValidatorMap = {
   isUUID,
   isVariableWidth,
   isWhitelisted,
+  postalCodeLocales,
   version,
 };
 
