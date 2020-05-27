@@ -1,6 +1,6 @@
-import { alpha } from './alpha.ts';
+import { alpha } from "./alpha.ts";
 
-export default function isAlpha(str: string, locale: string = 'en-US') {
+export default function isAlpha(str: string, locale: string = "en-US") {
   if (locale in alpha) {
     return alpha[locale].test(str);
   }

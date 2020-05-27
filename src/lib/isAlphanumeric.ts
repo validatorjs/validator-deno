@@ -1,6 +1,9 @@
-import { alphanumeric } from './alpha.ts';
+import { alphanumeric } from "./alpha.ts";
 
-export default function isAlphanumeric(str: string, locale: string = 'en-US'): boolean {
+export default function isAlphanumeric(
+  str: string,
+  locale: string = "en-US",
+): boolean {
   if (locale in alphanumeric) {
     return alphanumeric[locale].test(str);
   }

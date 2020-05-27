@@ -1,3 +1,3 @@
 export default function isUpperCase(str: string): boolean {
-    return str === str.toUpperCase();
+  return str === str.toUpperCase();
 }

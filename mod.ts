@@ -1,5 +1,5 @@
-import equals from './src/lib/equals.ts';
-import contains from './src/lib/contains.ts';
+import equals from "./src/lib/equals.ts";
+import contains from "./src/lib/contains.ts";
 import blacklist from "./src/lib/blacklist.ts";
 import escape from "./src/lib/escape.ts";
 
@@ -8,11 +8,11 @@ const version = "1.0.0-beta";
 
 // validators
 import isAlpha, {
-  locales as isAlphaLocales
-} from './src/lib/isAlpha.ts';
+  locales as isAlphaLocales,
+} from "./src/lib/isAlpha.ts";
 import isAlphanumeric, {
-  locales as isAlphanumericLocales
-} from './src/lib/isAlphanumeric.ts';
+  locales as isAlphanumericLocales,
+} from "./src/lib/isAlphanumeric.ts";
 import isAscii from "./src/lib/isAscii.ts";
 import isAfter from "./src/lib/isAfter.ts";
 import isBefore from "./src/lib/isBefore.ts";
@@ -70,7 +70,7 @@ import isWhitelisted from "./src/lib/isWhitelisted.ts";
 
 // For testing (resolving keys as string)
 interface ValidatorMap {
-  [key: string]: any
+  [key: string]: any;
 }
 
 const validator: ValidatorMap = {
@@ -135,7 +135,7 @@ const validator: ValidatorMap = {
   isUUID,
   isVariableWidth,
   isWhitelisted,
-  version
+  version,
 };
 
 export default validator;

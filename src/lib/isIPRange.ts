@@ -1,11 +1,11 @@
-import assertString from './util/assertString.ts';
-import isIP from './isIP.ts';
+import assertString from "./util/assertString.ts";
+import isIP from "./isIP.ts";
 
 const subnetMaybe: RegExp = /^\d{1,2}$/;
 
 export default function isIPRange(str: string): boolean {
   assertString(str);
-  const parts: Array<any> = str.split('/');
+  const parts: Array<any> = str.split("/");
 
   // parts[0] -> ip, parts[1] -> subnet
   if (parts.length !== 2) {
@@ -17,7 +17,7 @@ export default function isIPRange(str: string): boolean {
   }
 
   // Disallow preceding 0 i.e. 01, 02, ...
-  if (parts[1].length > 1 && parts[1].startsWith('0')) {
+  if (parts[1].length > 1 && parts[1].startsWith("0")) {
     return false;
   }
 
