@@ -7,8 +7,12 @@ import escape from "./src/lib/escape.ts";
 const version = "1.0.0-beta";
 
 // validators
-import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
-import isAlphanumeric, { locales as isAlphanumericLocales } from './src/lib/isAlphanumeric.ts';
+import isAlpha, {
+  locales as isAlphaLocales
+} from './src/lib/isAlpha.ts';
+import isAlphanumeric, {
+  locales as isAlphanumericLocales
+} from './src/lib/isAlphanumeric.ts';
 import isAscii from "./src/lib/isAscii.ts";
 import isAfter from "./src/lib/isAfter.ts";
 import isBefore from "./src/lib/isBefore.ts";
@@ -69,7 +73,7 @@ interface ValidatorMap {
   [key: string]: any
 }
 
-const validator : ValidatorMap = {
+const validator: ValidatorMap = {
   equals,
   contains,
   blacklist,

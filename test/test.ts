@@ -9,14 +9,18 @@ test({
 
 test({
     validator: 'equals',
-    args: ['abc ', { trim: true }],
+    args: ['abc ', {
+        trim: true
+    }],
     valid: ['  abc  '],
     invalid: ['Abc', '123'],
 });
 
 test({
     validator: 'equals',
-    args: ['abc', { ignore_case: true }],
+    args: ['abc', {
+        ignore_case: true
+    }],
     valid: ['abc', 'AbC'],
     invalid: ['@bc', '123'],
 });
@@ -1204,7 +1208,9 @@ test({
 
 test({
     validator: 'isEmpty',
-    args: [{ ignore_whitespace: false }],
+    args: [{
+        ignore_whitespace: false
+    }],
     valid: [
         '',
     ],
@@ -1217,7 +1223,9 @@ test({
 
 test({
     validator: 'isEmpty',
-    args: [{ ignore_whitespace: true }],
+    args: [{
+        ignore_whitespace: true
+    }],
     valid: [
         '',
         ' ',
@@ -1350,7 +1358,7 @@ test({
         '2001:db8:0000:1:1:1:1:1',
     ],
 });
-  
+
 test({
     validator: 'isIPRange',
     valid: [
@@ -1412,7 +1420,9 @@ test({
 });
 test({
     validator: 'isISSN',
-    args: [{ case_sensitive: true }],
+    args: [{
+        case_sensitive: true
+    }],
     valid: [
         '2434-561X',
         '2434561X',
@@ -1426,7 +1436,9 @@ test({
 });
 test({
     validator: 'isISSN',
-    args: [{ require_hyphen: true }],
+    args: [{
+        require_hyphen: true
+    }],
     valid: [
         '2434-561X',
         '2434-561x',
@@ -1440,7 +1452,10 @@ test({
 });
 test({
     validator: 'isISSN',
-    args: [{ case_sensitive: true, require_hyphen: true }],
+    args: [{
+        case_sensitive: true,
+        require_hyphen: true
+    }],
     valid: [
         '2434-561X',
         '0378-5955',
@@ -1501,7 +1516,9 @@ test({
 
 test({
     validator: 'isFloat',
-    args: [{ locale: 'en-AU' }],
+    args: [{
+        locale: 'en-AU'
+    }],
     valid: [
         '123',
         '123.',
@@ -1528,7 +1545,9 @@ test({
 
 test({
     validator: 'isFloat',
-    args: [{ locale: 'de-DE' }],
+    args: [{
+        locale: 'de-DE'
+    }],
     valid: [
         '123',
         '123,',
@@ -1555,7 +1574,9 @@ test({
 
 test({
     validator: 'isFloat',
-    args: [{ locale: 'ar-JO' }],
+    args: [{
+        locale: 'ar-JO'
+    }],
     valid: [
         '123',
         '123٫',
@@ -1959,33 +1980,54 @@ test({
 });
 test({
     validator: 'isIn',
-    args: [['foo', 'bar']],
+    args: [
+        ['foo', 'bar']
+    ],
     valid: ['foo', 'bar'],
     invalid: ['foobar', 'barfoo', ''],
 });
 test({
     validator: 'isIn',
-    args: [['1', '2', '3']],
+    args: [
+        ['1', '2', '3']
+    ],
     valid: ['1', '2', '3'],
     invalid: ['4', ''],
 });
 test({
     validator: 'isIn',
-    args: [['1', '2', '3', { foo: 'bar' }, () => 5, { toString: 'test' }]],
+    args: [
+        ['1', '2', '3', {
+            foo: 'bar'
+        }, () => 5, {
+                toString: 'test'
+            }]
+    ],
     valid: ['1', '2', '3', ''],
     invalid: ['4'],
 });
-test({ validator: 'isIn', invalid: ['foo', ''] });
+test({
+    validator: 'isIn',
+    invalid: ['foo', '']
+});
 
 test({
     validator: 'isIn',
-    args: [{ foo: 1, bar: 2, foobar: 3 }],
+    args: [{
+        foo: 1,
+        bar: 2,
+        foobar: 3
+    }],
     valid: ['foo', 'bar', 'foobar'],
     invalid: ['foobarbaz', 'barfoo', ''],
 });
 test({
     validator: 'isIn',
-    args: [{ 1: 3, 2: 0, 3: 1 }],
+    args: [{
+        1: 3,
+        2: 0,
+        3: 1
+    }],
     valid: ['1', '2', '3'],
     invalid: ['4', ''],
 });
@@ -2013,7 +2055,9 @@ test({
 
 test({
     validator: 'isInt',
-    args: [{ allow_leading_zeroes: false }],
+    args: [{
+        allow_leading_zeroes: false
+    }],
     valid: [
         '13',
         '123',
@@ -2035,7 +2079,9 @@ test({
 
 test({
     validator: 'isInt',
-    args: [{ allow_leading_zeroes: true }],
+    args: [{
+        allow_leading_zeroes: true
+    }],
     valid: [
         '13',
         '123',
@@ -2506,7 +2552,6 @@ test({
 
 
 
-
 test({
     validator: 'isRgbColor',
     valid: [
@@ -2780,12 +2825,12 @@ test({
 });
 
 
-    test({
-        validator: 'isFQDN',
-        args: [
-            { allow_trailing_dot: true },
-        ],
-        valid: [
-            'example.com.',
-        ],
-    });
+test({
+    validator: 'isFQDN',
+    args: [{
+        allow_trailing_dot: true
+    },],
+    valid: [
+        'example.com.',
+    ],
+});
