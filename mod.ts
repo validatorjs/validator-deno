@@ -29,10 +29,14 @@ import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isFloat from "./src/lib/isFloat.ts";
+import isFQDN from "./src/lib/isFQDN.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
+import isIP from "./src/lib/isIP.ts";
+import isISIN from "./src/lib/isISIN.ts";
+import isIPRange from "./src/lib/isIPRange.ts";
 import isISBN from "./src/lib/isISBN.ts";
 import isISRC from "./src/lib/isISRC.ts";
 import isISSN from "./src/lib/isISSN.ts";
@@ -50,8 +54,6 @@ import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
 import isPort from "./src/lib/isPort.ts";
-import isIP from "./src/lib/isIP.ts";
-import isIPRange from "./src/lib/isIPRange.ts";
 import isRFC3339 from "./src/lib/isRFC3339.ts";
 import isRgbColor from "./src/lib/isRgbColor.ts";
 import isSemVer from "./src/lib/isSemVer.ts";
@@ -91,6 +93,7 @@ const validator : ValidatorMap = {
   isEmpty,
   isEthereumAddress,
   isFloat,
+  isFQDN,
   isFullWidth,
   isHalfWidth,
   isHash,
@@ -99,10 +102,13 @@ const validator : ValidatorMap = {
   isHSL,
   isIn,
   isInt,
+  isISIN,
   isISBN,
   isISRC,
   isISSN,
   isJSON,
+  isIP,
+  isIPRange,
   isJWT,
   isLatLong,
   isLocale,
@@ -116,8 +122,6 @@ const validator : ValidatorMap = {
   isNumeric,
   isOctal,
   isPort,
-  isIP,
-  isIPRange,
   isRFC3339,
   isRgbColor,
   isSemVer,
