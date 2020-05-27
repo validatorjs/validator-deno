@@ -1,4 +1,4 @@
-import assertString from './util/assertString.ts';
+import assertString from "./util/assertString.ts";
 /**
 11.3.  Examples
 
@@ -28,42 +28,46 @@ import assertString from './util/assertString.ts';
    where the interface "ne0" belongs to the 1st link, "pvc1.3" belongs
    to the 5th link, and "interface10" belongs to the 10th organization.
  * * */
-const ipv4Maybe: RegExp = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
+const ipv4Maybe: RegExp =
+  /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
 const ipv6Block: RegExp = /^[0-9A-F]{1,4}$/i;
 
-export default function isIP(str: string, version: string | number = ''): boolean {
+export default function isIP(
+  str: string,
+  version: string | number = "",
+): boolean {
   assertString(str);
   version = String(version);
   if (!version) {
     return isIP(str, 4) || isIP(str, 6);
-  } else if (version === '4') {
+  } else if (version === "4") {
     if (!ipv4Maybe.test(str)) {
       return false;
     }
-    const parts : any = str.split('.').sort((a: any, b: any) => a - b);
+    const parts: any = str.split(".").sort((a: any, b: any) => a - b);
     return parts[3] <= 255;
-  } else if (version === '6') {
+  } else if (version === "6") {
     let addressAndZone = [str];
     // ipv6 addresses could have scoped architecture
     // according to https://tools.ietf.org/html/rfc4007#section-11
-    if (str.includes('%')) {
-      addressAndZone = str.split('%');
+    if (str.includes("%")) {
+      addressAndZone = str.split("%");
       if (addressAndZone.length !== 2) {
         // it must be just two parts
         return false;
       }
-      if (!addressAndZone[0].includes(':')) {
+      if (!addressAndZone[0].includes(":")) {
         // the first part must be the address
         return false;
       }
 
-      if (addressAndZone[1] === '') {
+      if (addressAndZone[1] === "") {
         // the second part must not be empty
         return false;
       }
     }
 
-    const blocks = addressAndZone[0].split(':');
+    const blocks = addressAndZone[0].split(":");
     let foundOmissionBlock = false; // marker to indicate ::
 
     // At least some OS accept the last 32 bits of an IPv6 address
@@ -77,13 +81,13 @@ export default function isIP(str: string, version: string | number = ''): boolea
       return false;
     }
     // initial or final ::
-    if (str === '::') {
+    if (str === "::") {
       return true;
-    } else if (str.substr(0, 2) === '::') {
+    } else if (str.substr(0, 2) === "::") {
       blocks.shift();
       blocks.shift();
       foundOmissionBlock = true;
-    } else if (str.substr(str.length - 2) === '::') {
+    } else if (str.substr(str.length - 2) === "::") {
       blocks.pop();
       blocks.pop();
       foundOmissionBlock = true;
@@ -92,7 +96,7 @@ export default function isIP(str: string, version: string | number = ''): boolea
     for (let i = 0; i < blocks.length; ++i) {
       // test for a :: which can not be at the string start/end
       // since those cases have been handled above
-      if (blocks[i] === '' && i > 0 && i < blocks.length - 1) {
+      if (blocks[i] === "" && i > 0 && i < blocks.length - 1) {
         if (foundOmissionBlock) {
           return false; // multiple :: in address
         }

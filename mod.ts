@@ -1,5 +1,5 @@
-import equals from './src/lib/equals.ts';
-import contains from './src/lib/contains.ts';
+import equals from "./src/lib/equals.ts";
+import contains from "./src/lib/contains.ts";
 import blacklist from "./src/lib/blacklist.ts";
 import escape from "./src/lib/escape.ts";
 
@@ -7,8 +7,12 @@ import escape from "./src/lib/escape.ts";
 const version = "1.0.0-beta";
 
 // validators
-import isAlpha, { locales as isAlphaLocales } from './src/lib/isAlpha.ts';
-import isAlphanumeric, { locales as isAlphanumericLocales } from './src/lib/isAlphanumeric.ts';
+import isAlpha, {
+  locales as isAlphaLocales,
+} from "./src/lib/isAlpha.ts";
+import isAlphanumeric, {
+  locales as isAlphanumericLocales,
+} from "./src/lib/isAlphanumeric.ts";
 import isAscii from "./src/lib/isAscii.ts";
 import isAfter from "./src/lib/isAfter.ts";
 import isBefore from "./src/lib/isBefore.ts";
@@ -29,10 +33,14 @@ import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
 import isFullWidth from "./src/lib/isFullWidth.ts";
 import isFloat from "./src/lib/isFloat.ts";
+import isFQDN from "./src/lib/isFQDN.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
+import isIP from "./src/lib/isIP.ts";
+import isISIN from "./src/lib/isISIN.ts";
+import isIPRange from "./src/lib/isIPRange.ts";
 import isISBN from "./src/lib/isISBN.ts";
 import isISRC from "./src/lib/isISRC.ts";
 import isISSN from "./src/lib/isISSN.ts";
@@ -51,9 +59,9 @@ import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
 import isPassportNumber from "./src/lib/isPassportNumber.ts";
 import isPort from "./src/lib/isPort.ts";
-import isPostalCode, {locales as postalCodeLocales} from "./src/lib/isPostalCode.ts";
-import isIP from "./src/lib/isIP.ts";
-import isIPRange from "./src/lib/isIPRange.ts";
+import isPostalCode, {
+  locales as postalCodeLocales,
+} from "./src/lib/isPostalCode.ts";
 import isRFC3339 from "./src/lib/isRFC3339.ts";
 import isRgbColor from "./src/lib/isRgbColor.ts";
 import isSemVer from "./src/lib/isSemVer.ts";
@@ -66,10 +74,10 @@ import isWhitelisted from "./src/lib/isWhitelisted.ts";
 
 // For testing (resolving keys as string)
 interface ValidatorMap {
-  [key: string]: any
+  [key: string]: any;
 }
 
-const validator : ValidatorMap = {
+const validator: ValidatorMap = {
   equals,
   contains,
   blacklist,
@@ -93,6 +101,7 @@ const validator : ValidatorMap = {
   isEmpty,
   isEthereumAddress,
   isFloat,
+  isFQDN,
   isFullWidth,
   isHalfWidth,
   isHash,
@@ -101,10 +110,13 @@ const validator : ValidatorMap = {
   isHSL,
   isIn,
   isInt,
+  isISIN,
   isISBN,
   isISRC,
   isISSN,
   isJSON,
+  isIP,
+  isIPRange,
   isJWT,
   isLatLong,
   isLocale,
@@ -120,8 +132,6 @@ const validator : ValidatorMap = {
   isPassportNumber,
   isPort,
   isPostalCode,
-  isIP,
-  isIPRange,
   isRFC3339,
   isRgbColor,
   isSemVer,
@@ -132,7 +142,7 @@ const validator : ValidatorMap = {
   isVariableWidth,
   isWhitelisted,
   postalCodeLocales,
-  version
+  version,
 };
 
 export default validator;

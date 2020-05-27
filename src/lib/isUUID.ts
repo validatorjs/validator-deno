@@ -5,7 +5,7 @@ const uuid: { [key: string]: RegExp } = {
   all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
 };
 
-export default function isUUID(str: string, version: string = 'all') {
+export default function isUUID(str: string, version: string = "all") {
   const pattern = uuid[version];
   return pattern && pattern.test(str);
 }

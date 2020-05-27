@@ -1,10 +1,13 @@
-import assertString from './util/assertString.ts';
+import assertString from "./util/assertString.ts";
 
-export default function isByteLength(str: string, options: { min?: number; max: number; }): boolean {
+export default function isByteLength(
+  str: string,
+  options: { min?: number; max: number },
+): boolean {
   assertString(str);
   let min: number;
   let max: number;
-  if (typeof (options) === 'object') {
+  if (typeof (options) === "object") {
     min = options.min || 0;
     max = options.max;
   } else { // backwards compatibility: isByteLength(str, min [, max])
@@ -12,5 +15,5 @@ export default function isByteLength(str: string, options: { min?: number; max: 
     max = arguments[2];
   }
   const len = encodeURI(str).split(/%..|./).length - 1;
-  return len >= min && (typeof max === 'undefined' || len <= max);
+  return len >= min && (typeof max === "undefined" || len <= max);
 }
