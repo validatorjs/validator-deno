@@ -8,6 +8,7 @@ interface Options {
     validator: string,
     valid?: string[],
     invalid?: string[],
+    error?: string[],
     args?: (number | string | { [key: string]: any })[]
 }
 
@@ -23,6 +24,12 @@ export default function test(options: Options): void {
         if (options.invalid) {
             options.invalid.forEach(invalid => {
                 assertEquals(validator[options.validator](invalid, ...args), false)
+            });
+        }
+
+        if (options.error) {
+            options.error.forEach(error => {
+                assertThrows((): void => validator[options.validator](error, ...args))
             });
         }
     })
