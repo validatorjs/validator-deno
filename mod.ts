@@ -25,8 +25,8 @@ import isByteLength from "./src/lib/isByteLength.ts";
 import isCreditCard from "./src/lib/isCreditCard.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDate from "./src/lib/isDate.ts";
-import isDivisibleBy from "./src/lib/isDivisibleBy.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
+import isDivisibleBy from "./src/lib/isDivisibleBy.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
 import isFloat from "./src/lib/isFloat.ts";
@@ -98,8 +98,8 @@ const validator: ValidatorMap = {
   isCreditCard,
   isDataURI,
   isDate,
-  isDivisibleBy,
   isDecimal,
+  isDivisibleBy,
   isEmpty,
   isEthereumAddress,
   isFloat,
