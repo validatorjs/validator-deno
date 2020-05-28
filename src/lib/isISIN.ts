@@ -1,16 +1,13 @@
-import assertString from "./util/assertString.ts";
-
 const isin: RegExp = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
 
-export default function isISIN(str: any): boolean {
-  assertString(str);
+export default function isISIN(str: string): boolean {
   if (!isin.test(str)) {
     return false;
   }
 
   const checksumStr = str.replace(
     /[A-Z]/g,
-    (character: string) => (parseInt(character, 36)),
+    (character: string) => (parseInt(character, 36)).toString(),
   );
 
   let sum = 0;

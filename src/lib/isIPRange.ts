@@ -1,10 +1,8 @@
-import assertString from "./util/assertString.ts";
 import isIP from "./isIP.ts";
 
 const subnetMaybe: RegExp = /^\d{1,2}$/;
 
 export default function isIPRange(str: string): boolean {
-  assertString(str);
   const parts: Array<any> = str.split("/");
 
   // parts[0] -> ip, parts[1] -> subnet

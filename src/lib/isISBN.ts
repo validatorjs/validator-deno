@@ -1,5 +1,3 @@
-import assertString from "./util/assertString.ts";
-
 const isbn10Maybe: RegExp = /^(?:[0-9]{9}X|[0-9]{10})$/;
 const isbn13Maybe: RegExp = /^(?:[0-9]{13})$/;
 const factor = [1, 3];
@@ -8,7 +6,6 @@ export default function isISBN(
   str: string,
   version: string | number = "",
 ): boolean {
-  assertString(str);
   version = String(version);
   if (!version) {
     return isISBN(str, 10) || isISBN(str, 13);
