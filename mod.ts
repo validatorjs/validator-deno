@@ -7,6 +7,7 @@ import escape from "./src/lib/escape.ts";
 const version = "1.0.0-beta";
 
 // validators
+import isAfter from "./src/lib/isAfter.ts";
 import isAlpha, {
   locales as isAlphaLocales,
 } from "./src/lib/isAlpha.ts";
@@ -14,11 +15,9 @@ import isAlphanumeric, {
   locales as isAlphanumericLocales,
 } from "./src/lib/isAlphanumeric.ts";
 import isAscii from "./src/lib/isAscii.ts";
-import isAfter from "./src/lib/isAfter.ts";
-import isBefore from "./src/lib/isBefore.ts";
-
 import isBase32 from "./src/lib/isBase32.ts";
 import isBase64 from "./src/lib/isBase64.ts";
+import isBefore from "./src/lib/isBefore.ts";
 import isBIC from "./src/lib/isBIC.ts";
 import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
@@ -28,20 +27,20 @@ import isDataURI from "./src/lib/isDataURI.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
-import isHash from "./src/lib/isHash.ts";
-import isHexColor from "./src/lib/isHexColor.ts";
-import isHSL from "./src/lib/isHSL.ts";
-import isFullWidth from "./src/lib/isFullWidth.ts";
 import isFloat from "./src/lib/isFloat.ts";
+import isFullWidth from "./src/lib/isFullWidth.ts";
 import isFQDN from "./src/lib/isFQDN.ts";
 import isHalfWidth from "./src/lib/isHalfWidth.ts";
+import isHash from "./src/lib/isHash.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
+import isHexColor from "./src/lib/isHexColor.ts";
+import isHSL from "./src/lib/isHSL.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
 import isIP from "./src/lib/isIP.ts";
-import isISIN from "./src/lib/isISIN.ts";
 import isIPRange from "./src/lib/isIPRange.ts";
 import isISBN from "./src/lib/isISBN.ts";
+import isISIN from "./src/lib/isISIN.ts";
 import isISRC from "./src/lib/isISRC.ts";
 import isISSN from "./src/lib/isISSN.ts";
 import isJSON from "./src/lib/isJSON.ts";
@@ -66,8 +65,8 @@ import isRgbColor from "./src/lib/isRgbColor.ts";
 import isSemVer from "./src/lib/isSemVer.ts";
 import isSlug from "./src/lib/isSlug.ts";
 import isSurrogatePair from "./src/lib/isSurrogatePair.ts";
-import isUUID from "./src/lib/isUUID.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
+import isUUID from "./src/lib/isUUID.ts";
 import isVariableWidth from "./src/lib/isVariableWidth.ts";
 import isWhitelisted from "./src/lib/isWhitelisted.ts";
 
