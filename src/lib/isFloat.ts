@@ -10,7 +10,6 @@ interface isFloatOptions {
 }
 
 export default function isFloat(str: string, options: isFloatOptions): boolean {
-  console.log(options);
   const float = new RegExp(
     `^(?:[-+])?(?:[0-9]+)?(?:\\${
       options?.locale ? decimal[options.locale] : "."

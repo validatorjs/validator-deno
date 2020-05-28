@@ -51,7 +51,6 @@ import isLocale from "./src/lib/isLocale.ts";
 import isLowerCase from "./src/lib/isLowerCase.ts";
 import isMACAddress from "./src/lib/isMACAddress.ts";
 import isMagnetURI from "./src/lib/isMagnetURI.ts";
-import isMD5 from "./src/lib/isMD5.ts";
 import isMimeType from "./src/lib/isMimeType.ts";
 import isMongoId from "./src/lib/isMongoId.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
@@ -123,7 +122,6 @@ const validator: ValidatorMap = {
   isLowerCase,
   isMACAddress,
   isMagnetURI,
-  isMD5,
   isMimeType,
   isMongoId,
   isMultibyte,
