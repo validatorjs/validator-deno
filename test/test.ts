@@ -2273,6 +2273,56 @@ test({
 });
 
 test({
+  validator: "isISO31661Alpha2",
+  valid: [
+    "FR",
+    "fR",
+    "GB",
+    "PT",
+    "CM",
+    "JP",
+    "PM",
+    "ZW",
+    "MM",
+    "cc",
+    "GG",
+  ],
+  invalid: [
+    "",
+    "FRA",
+    "AA",
+    "PI",
+    "RP",
+    "WV",
+    "WL",
+    "UK",
+    "ZZ",
+  ],
+});
+
+// from https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
+test({
+  validator: "isISO31661Alpha3",
+  valid: [
+    "ABW",
+    "HND",
+    "KHM",
+    "RWA",
+  ],
+  invalid: [
+    "",
+    "FR",
+    "fR",
+    "GB",
+    "PT",
+    "CM",
+    "JP",
+    "PM",
+    "ZW",
+  ],
+});
+
+test({
   validator: "isISRC",
   valid: [
     "USAT29900609",
