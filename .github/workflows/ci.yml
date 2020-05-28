@@ -25,11 +25,6 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }}
 
-      - name: Setup Node
-        uses: actions/setup-node@master
-        with:
-          node-version: 12
-
       - name: Print deno version
         run: deno --version
 
