@@ -133,6 +133,6 @@ function hasValidIbanChecksum(str: string): boolean {
   return remainder === 1;
 }
 
-export default function isIBAN(str: string) {
+export default function isIBAN(str: string): boolean {
   return hasValidIbanFormat(str) && hasValidIbanChecksum(str);
 }

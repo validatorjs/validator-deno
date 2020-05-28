@@ -118,7 +118,7 @@ export default function isMobilePhone(
   str: string,
   locale: string,
   options: MobilePhoneOptions = defaultMobilePhoneOptions,
-) {
+): boolean {
   if (options.strictMode && !str.startsWith("+")) {
     return false;
   }

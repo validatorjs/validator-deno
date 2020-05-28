@@ -26,6 +26,7 @@ import isCreditCard from "./src/lib/isCreditCard.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDate from "./src/lib/isDate.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
+import isEAN from "./src/lib/isEAN.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
 import isFloat from "./src/lib/isFloat.ts";
@@ -57,7 +58,9 @@ import isMACAddress from "./src/lib/isMACAddress.ts";
 import isMagnetURI from "./src/lib/isMagnetURI.ts";
 import isMimeType from "./src/lib/isMimeType.ts";
 import isMongoId from "./src/lib/isMongoId.ts";
-import isMobilePhone from "./src/lib/isMobilePhone.ts";
+import isMobilePhone, {
+  locales as mobilePhoneLocales,
+} from "./src/lib/isMobilePhone.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
@@ -103,6 +106,7 @@ const validator: ValidatorMap = {
   isDataURI,
   isDate,
   isDecimal,
+  isEAN,
   isEmpty,
   isEthereumAddress,
   isFloat,
@@ -150,6 +154,7 @@ const validator: ValidatorMap = {
   isUUID,
   isVariableWidth,
   isWhitelisted,
+  mobilePhoneLocales,
   postalCodeLocales,
   version,
 };

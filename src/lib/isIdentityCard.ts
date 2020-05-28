@@ -343,7 +343,9 @@ const validators: { [key: string]: Function } = {
         return acc + (Number(currElement) * (9 - index));
       },
       0,
-    ) ? true : false;
+    )
+      ? true
+      : false;
   },
 };
 
