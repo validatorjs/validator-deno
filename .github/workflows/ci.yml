@@ -33,8 +33,5 @@ jobs:
       - name: Print deno version
         run: deno --version
 
-      - name: Check format
-        run: deno fmt
-
       - name: Run tests
         run: deno test
