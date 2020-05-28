@@ -36,6 +36,7 @@ import isHash from "./src/lib/isHash.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
+import isIBAN from "./src/lib/isIBAN.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
 import isIP from "./src/lib/isIP.ts";
@@ -108,6 +109,7 @@ const validator: ValidatorMap = {
   isHexadecimal,
   isHexColor,
   isHSL,
+  isIBAN,
   isIn,
   isInt,
   isISIN,
