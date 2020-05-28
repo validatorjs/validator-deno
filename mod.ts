@@ -37,6 +37,7 @@ import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
 import isIBAN from "./src/lib/isIBAN.ts";
+import isIdentityCard from "./src/lib/isIdentityCard.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
 import isIP from "./src/lib/isIP.ts";
@@ -56,6 +57,7 @@ import isMACAddress from "./src/lib/isMACAddress.ts";
 import isMagnetURI from "./src/lib/isMagnetURI.ts";
 import isMimeType from "./src/lib/isMimeType.ts";
 import isMongoId from "./src/lib/isMongoId.ts";
+import isMobilePhone from "./src/lib/isMobilePhone.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
@@ -112,6 +114,7 @@ const validator: ValidatorMap = {
   isHexColor,
   isHSL,
   isIBAN,
+  isIdentityCard,
   isIn,
   isInt,
   isISIN,
@@ -131,6 +134,7 @@ const validator: ValidatorMap = {
   isMagnetURI,
   isMimeType,
   isMongoId,
+  isMobilePhone,
   isMultibyte,
   isNumeric,
   isOctal,

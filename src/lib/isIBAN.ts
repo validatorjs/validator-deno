@@ -120,14 +120,10 @@ function hasValidIbanChecksum(str: string): boolean {
   const strippedStr = str.replace(/[^A-Z0-9]+/gi, "").toUpperCase(); // Keep only digits and A-Z latin alphabetic
   const rearranged = strippedStr.slice(4) + strippedStr.slice(0, 4);
 
-  console.log("-->", strippedStr.slice(4) + strippedStr.slice(0, 4));
-
   const alphaCapsReplacedWithDigits: string = rearranged.replace(
     /[A-Z]/g,
     (char) => (char.charCodeAt(0) - 55).toString(),
   );
-
-  console.log(alphaCapsReplacedWithDigits);
 
   const remainder = alphaCapsReplacedWithDigits.match(/\d{1,7}/g)?.reduce(
     (acc: number, value: string) => Number(acc.toString() + value) % 97,
