@@ -8,7 +8,7 @@ interface Options {
   validator: string;
   valid?: string[];
   invalid?: string[];
-  error?: string[];
+  error?: any[];
   args?: (number | string | { [key: string]: any })[];
 }
 
