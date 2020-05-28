@@ -1,5 +1,3 @@
-import assertString from "./util/assertString.ts";
-
 interface isFQDN {
   require_tld?: boolean;
   allow_underscores?: boolean;
@@ -16,8 +14,6 @@ export default function isFQDN(
   str: string,
   options: isFQDN = default_fqdn_options,
 ): boolean {
-  assertString(str);
-
   /* Remove the optional trailing dot before checking validity */
   if (options.allow_trailing_dot && str[str.length - 1] === ".") {
     str = str.substring(0, str.length - 1);

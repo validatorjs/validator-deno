@@ -1,10 +1,7 @@
-import assertString from "./util/assertString.ts";
-
 export default function isByteLength(
   str: string,
   options: { min?: number; max: number },
 ): boolean {
-  assertString(str);
   let min: number;
   let max: number;
   if (typeof (options) === "object") {

@@ -1,4 +1,3 @@
-import assertString from "./util/assertString.ts";
 import { decimal } from "./alpha.ts";
 
 interface isFloatOptions {

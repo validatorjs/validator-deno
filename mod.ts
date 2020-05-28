@@ -23,6 +23,7 @@ import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
 import isByteLength from "./src/lib/isByteLength.ts";
 import isCreditCard from "./src/lib/isCreditCard.ts";
+import isCurrency from "./src/lib/isCurrency.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDate from "./src/lib/isDate.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
@@ -103,6 +104,7 @@ const validator: ValidatorMap = {
   isBtcAddress,
   isByteLength,
   isCreditCard,
+  isCurrency,
   isDataURI,
   isDate,
   isDecimal,
