@@ -9,7 +9,10 @@ const defaultOptions: Options = {
   urlsafe: false,
 };
 
-export default function isBase64(str: string, options: Options = defaultOptions): boolean {
+export default function isBase64(
+  str: string,
+  options: Options = defaultOptions,
+): boolean {
   const len: number = str.length;
 
   if (options.urlsafe) {
