@@ -9,7 +9,7 @@ export default function isCreditCard(str: string): boolean {
   let sum = 0;
   let digit: string;
   let tmpNum: number;
-  let shouldDouble;
+  let shouldDouble: boolean = false;
   for (let i = sanitized.length - 1; i >= 0; i--) {
     digit = sanitized.substring(i, (i + 1));
     tmpNum = parseInt(digit, 10);

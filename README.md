@@ -36,6 +36,9 @@ Here is a list of the validators currently available.
 | **isBtcAddress(str)** | check if the string is a valid BTC address. |
 | **isByteLength(str [, options])** | check if the string's length (in UTF-8 bytes) falls in a range.<br/><br/>`options` is an object which defaults to `{ min: 0, max: undefined }`. |
 | **isCreditCard(str)** | check if the string is a valid Credit Card number. |
+| **isCurrency(str)** | check if the string is a valid currency amount.<br/><br/>`options` is an object which defaults to `{ symbol: '$', require_symbol: false, allow_space_after_symbol: false, symbol_after_digits: false, allow_negatives: true, parens_for_negatives: false, negative_sign_before_digits: false, negative_sign_after_digits: false, allow_negative_sign_placeholder: false, thousands_separator: ',', decimal_separator: '.', allow_decimal: true, require_decimal: false, digits_after_decimal: [2], allow_space_after_digits: false }.`<br>**Note**: The array `digits_after_decimal` is filled with the exact number of digits allowed not a range, for example a range 1 to 3 will be given as [1, 2, 3]. |
+| **isDataURI(str)** | check if the string is in Data URI format. |
+| **isDate(str [, format])** | check if the string is a valid date. Example `[2002-07-15, new Date()]`.<br/><br/>`format` is a string that defaults to `YYYY/MM/DD` |
 | **isEmpty(str [, options])** | check if the string has a length of zero. <br/><br/>`options` is an object which defaults to `{ ignore_whitespace:false }`. |
 | **isFullWidth(str)** | check if the string contains any full-width chars. |
 | **isHalfWidth(str)** | check if the string contains any half-width chars. |

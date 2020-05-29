@@ -1,3 +1,5 @@
+import merge from "./util/merge.ts";
+
 interface EqualsOptions {
   trim?: boolean;
   ignoreCase?: boolean;
@@ -13,6 +15,7 @@ export default function equals(
   str2: string,
   options: EqualsOptions = defaultEqualsOptions,
 ): boolean {
+  merge(options, defaultEqualsOptions);
   if (options.trim) {
     str1 = str1.trim();
     str2 = str2.trim();

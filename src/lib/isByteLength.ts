@@ -12,7 +12,7 @@ const defaultIsByteLengthOptions: IsByteLengthOptions = {
 
 export default function isByteLength(
   str: string,
-  options: IsByteLengthOptions,
+  options: IsByteLengthOptions = defaultIsByteLengthOptions,
 ): boolean {
   options = merge(options, defaultIsByteLengthOptions);
   const len = encodeURI(str).split(/%..|./).length - 1;
