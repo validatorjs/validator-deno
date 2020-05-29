@@ -30,3 +30,6 @@ jobs:
 
       - name: Run tests
         run: deno test
+      
+      - name: Check format
+        run: deno fmt --check
