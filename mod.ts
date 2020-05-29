@@ -77,6 +77,7 @@ import isSemVer from "./src/lib/isSemVer.ts";
 import isSlug from "./src/lib/isSlug.ts";
 import isSurrogatePair from "./src/lib/isSurrogatePair.ts";
 import isUpperCase from "./src/lib/isUpperCase.ts";
+import isURL from "./src/lib/isURL.ts";
 import isUUID from "./src/lib/isUUID.ts";
 import isVariableWidth from "./src/lib/isVariableWidth.ts";
 import isWhitelisted from "./src/lib/isWhitelisted.ts";
@@ -155,6 +156,7 @@ const validator: ValidatorMap = {
   isSlug,
   isSurrogatePair,
   isUpperCase,
+  isURL,
   isUUID,
   isVariableWidth,
   isWhitelisted,
