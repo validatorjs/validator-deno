@@ -1,21 +1,24 @@
+import merge from "./util/merge.ts";
+
 const notBase64: RegExp = /[^A-Z0-9+\/=]/i;
 const urlSafeBase64: RegExp = /^[A-Z0-9_\-]+$/i;
 
-interface Options {
-  urlsafe?: boolean;
+interface IsBase64Options {
+  urlSafe?: boolean;
 }
 
-const defaultOptions: Options = {
-  urlsafe: false,
+const defaultIsBase64Options: IsBase64Options = {
+  urlSafe: false,
 };
 
 export default function isBase64(
   str: string,
-  options: Options = defaultOptions,
+  options: IsBase64Options = defaultIsBase64Options,
 ): boolean {
+  merge(options, defaultIsBase64Options);
   const len: number = str.length;
 
-  if (options.urlsafe) {
+  if (options.urlSafe) {
     return urlSafeBase64.test(str);
   }
 

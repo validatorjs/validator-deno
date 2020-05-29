@@ -4,11 +4,28 @@ let allValid: Array<string> = [];
 let fixtures = [];
 
 test({
+  validator: "contains",
+  args: ["foo"],
+  valid: ["foo", "foobar", "bazfoo"],
+  invalid: ["bar", "fobar", "Foobar"],
+});
+
+test({
+  validator: "contains",
+  args: ["foo", {
+    ignoreCase: true,
+  }],
+  valid: ["Foo", "FOObar", "BAZfoo"],
+  invalid: ["bar", "fobar", "baxoof"],
+});
+
+test({
   validator: "equals",
   args: ["abc"],
   valid: ["abc"],
   invalid: ["Abc", "123"],
 });
+
 ({
   validator: "equals",
   args: ["abc ", { trim: true }],
@@ -18,7 +35,7 @@ test({
 
 test({
   validator: "equals",
-  args: ["abc", { ignore_case: true }],
+  args: ["abc", { ignoreCase: true }],
   valid: ["abc", "AbC"],
   invalid: ["@bc", "123"],
 });
@@ -966,6 +983,27 @@ test({
 });
 
 test({
+  validator: "isBase64",
+  args: [{ urlSafe: true }],
+  valid: [
+    "bGFkaWVzIGFuZCBnZW50bGVtZW4sIHdlIGFyZSBmbG9hdGluZyBpbiBzcGFjZQ",
+    "1234",
+    "bXVtLW5ldmVyLXByb3Vk",
+    "PDw_Pz8-Pg",
+    "VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw",
+  ],
+  invalid: [
+    " AA",
+    "\tAA",
+    "\rAA",
+    "",
+    "\nAA",
+    "This+isa/bad+base64Url==",
+    "0K3RgtC+INC30LDQutC+0LTQuNGA0L7QstCw0L3QvdCw0Y8g0YHRgtGA0L7QutCw",
+  ],
+});
+
+test({
   validator: "isBefore",
   args: ["08/04/2011"],
   valid: ["2010-07-02", "2010-08-04", `${new Date(0)}`],
@@ -1054,21 +1092,21 @@ test({
 
 test({
   validator: "isByteLength",
-  args: [2],
+  args: [{ min: 2 }],
   valid: ["abc", "de", "abcd", "ｇｍａｉｌ"],
   invalid: ["", "a"],
 });
 
 test({
   validator: "isByteLength",
-  args: [2, 3],
+  args: [{ min: 2, max: 3 }],
   valid: ["abc", "de", "ｇ"],
   invalid: ["", "a", "abcd", "ｇｍ"],
 });
 
 test({
   validator: "isByteLength",
-  args: [0, 0],
+  args: [{ min: 0, max: 0 }],
   valid: [""],
   invalid: ["ｇ", "a"],
 });

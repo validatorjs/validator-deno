@@ -1,9 +1,9 @@
-# validator.js
+# validator-deno
 
 ![CI](https://github.com/validatorjs/validator-deno/workflows/CI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A library for validating and sanitizing strings, inspired by the popular [validator.js](https://github.com/validatorjs/validator.js)
+A library for validating and sanitizing strings, Official port of the popular [validator.js](https://github.com/validatorjs/validator.js)
 
 ## Strings only
 **This library validates and sanitizes strings only.**
@@ -22,10 +22,23 @@ Here is a list of the validators currently available.
 
 | Validator | Description |
 | - | - |
-| **equals(str, comparison [, options])** | check if the string matches the comparison.<br/><br/>`options` is an object which defaults to `{ trim: false, ignore_case: false }`. |
+| **contains(str, seed [, options])** | check if the string contains the seed.<br/><br/>`options` is an object which defaults to `{ ignoreCase: false }`. |
+| **equals(str, comparison [, options])** | check if the string matches the comparison.<br/><br/>`options` is an object which defaults to `{ trim: false, ignoreCase: false }`. |
+| **isAfter(str [, date])** | check if the string is a date that's after the specified date (defaults to `now`). |
+| **isAlpha(str [, locale])** | check if the string contains only alphabets depending on the locale.<br/><br/>Locale is one of `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fa-IR', 'fr-FR', 'he', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pl-Pl', 'pt-BR', 'pt-PT', 'ru-RU', 'sk-SK', 'sl-SI', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']` and defaults to `en-US`. Locale list can be accessed via `validator.isAlphaLocales` |
+| **isAlphanumeric(str [, locale])** | check if the string contains only alphabets and digits depending on the locale.<br/><br/>Locale is one of `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fa-IR', 'fr-FR', 'he', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pl-Pl', 'pt-BR', 'pt-PT', 'ru-RU', 'sk-SK', 'sl-SI', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']` and defaults to `en-US`. Locale list can be accessed via `validator.isAlphanumericLocales` |
 | **isAscii(str)** | check if the string contains ASCII chars only. |
 | **isBase32(str)** | check if a string is base32 encoded. |
-| **isBase64(str)** | check if a string is base64 encoded. |
+| **isBase64(str [, options])** | check if a string is base64 encoded.<br/><br/>`options` is an object which defaults to `{ urlSafe: false }`. |
+| **isBefore(str [, date])** | check if the string is a date that's before the specified date (defaults to `now`). |
+| **isBIC(str)** | check if a string is a BIC (Bank Identification Code) or SWIFT code. |
+| **isBoolean(str)** | check if a string is a boolean. |
+| **isBtcAddress(str)** | check if the string is a valid BTC address. |
+| **isByteLength(str [, options])** | check if the string's length (in UTF-8 bytes) falls in a range.<br/><br/>`options` is an object which defaults to `{ min: 0, max: undefined }`. |
+| **isCreditCard(str)** | check if the string is a valid Credit Card number. |
+| **isCurrency(str)** | check if the string is a valid currency amount.<br/><br/>`options` is an object which defaults to `{ symbol: '$', require_symbol: false, allow_space_after_symbol: false, symbol_after_digits: false, allow_negatives: true, parens_for_negatives: false, negative_sign_before_digits: false, negative_sign_after_digits: false, allow_negative_sign_placeholder: false, thousands_separator: ',', decimal_separator: '.', allow_decimal: true, require_decimal: false, digits_after_decimal: [2], allow_space_after_digits: false }.`<br>**Note**: The array `digits_after_decimal` is filled with the exact number of digits allowed not a range, for example a range 1 to 3 will be given as [1, 2, 3]. |
+| **isDataURI(str)** | check if the string is in Data URI format. |
+| **isDate(str [, format])** | check if the string is a valid date. Example `[2002-07-15, new Date()]`.<br/><br/>`format` is a string that defaults to `YYYY/MM/DD` |
 | **isEmpty(str [, options])** | check if the string has a length of zero. <br/><br/>`options` is an object which defaults to `{ ignore_whitespace:false }`. |
 | **isFullWidth(str)** | check if the string contains any full-width chars. |
 | **isHalfWidth(str)** | check if the string contains any half-width chars. |
