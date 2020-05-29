@@ -27,6 +27,7 @@ import isCurrency from "./src/lib/isCurrency.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDate from "./src/lib/isDate.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
+import isDivisibleBy from "./src/lib/isDivisibleBy.ts";
 import isEAN from "./src/lib/isEAN.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
@@ -108,6 +109,7 @@ const validator: ValidatorMap = {
   isDataURI,
   isDate,
   isDecimal,
+  isDivisibleBy,
   isEAN,
   isEmpty,
   isEthereumAddress,
