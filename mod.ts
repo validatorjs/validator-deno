@@ -49,6 +49,7 @@ import isISBN from "./src/lib/isISBN.ts";
 import isISIN from "./src/lib/isISIN.ts";
 import isISO31661Alpha2 from "./src/lib/isISO31661Alpha2.ts";
 import isISO31661Alpha3 from "./src/lib/isISO31661Alpha3.ts";
+import isISO8601 from "./src/lib/isISO8601.ts";
 import isISRC from "./src/lib/isISRC.ts";
 import isISSN from "./src/lib/isISSN.ts";
 import isJSON from "./src/lib/isJSON.ts";
@@ -129,6 +130,7 @@ const validator: ValidatorMap = {
   isISIN,
   isISO31661Alpha2,
   isISO31661Alpha3,
+  isISO8601,
   isISBN,
   isISRC,
   isISSN,
