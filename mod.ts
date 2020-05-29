@@ -23,10 +23,12 @@ import isBoolean from "./src/lib/isBoolean.ts";
 import isBtcAddress from "./src/lib/isBtcAddress.ts";
 import isByteLength from "./src/lib/isByteLength.ts";
 import isCreditCard from "./src/lib/isCreditCard.ts";
+import isCurrency from "./src/lib/isCurrency.ts";
 import isDataURI from "./src/lib/isDataURI.ts";
 import isDate from "./src/lib/isDate.ts";
 import isDecimal from "./src/lib/isDecimal.ts";
 import isDivisibleBy from "./src/lib/isDivisibleBy.ts";
+import isEAN from "./src/lib/isEAN.ts";
 import isEmpty from "./src/lib/isEmpty.ts";
 import isEthereumAddress from "./src/lib/isEthereumAddress.ts";
 import isFloat from "./src/lib/isFloat.ts";
@@ -37,12 +39,16 @@ import isHash from "./src/lib/isHash.ts";
 import isHexadecimal from "./src/lib/isHexadecimal.ts";
 import isHexColor from "./src/lib/isHexColor.ts";
 import isHSL from "./src/lib/isHSL.ts";
+import isIBAN from "./src/lib/isIBAN.ts";
+import isIdentityCard from "./src/lib/isIdentityCard.ts";
 import isIn from "./src/lib/isIn.ts";
 import isInt from "./src/lib/isInt.ts";
 import isIP from "./src/lib/isIP.ts";
 import isIPRange from "./src/lib/isIPRange.ts";
 import isISBN from "./src/lib/isISBN.ts";
 import isISIN from "./src/lib/isISIN.ts";
+import isISO31661Alpha2 from "./src/lib/isISO31661Alpha2.ts";
+import isISO31661Alpha3 from "./src/lib/isISO31661Alpha3.ts";
 import isISRC from "./src/lib/isISRC.ts";
 import isISSN from "./src/lib/isISSN.ts";
 import isJSON from "./src/lib/isJSON.ts";
@@ -54,6 +60,9 @@ import isMACAddress from "./src/lib/isMACAddress.ts";
 import isMagnetURI from "./src/lib/isMagnetURI.ts";
 import isMimeType from "./src/lib/isMimeType.ts";
 import isMongoId from "./src/lib/isMongoId.ts";
+import isMobilePhone, {
+  locales as mobilePhoneLocales,
+} from "./src/lib/isMobilePhone.ts";
 import isMultibyte from "./src/lib/isMultibyte.ts";
 import isNumeric from "./src/lib/isNumeric.ts";
 import isOctal from "./src/lib/isOctal.ts";
@@ -96,10 +105,12 @@ const validator: ValidatorMap = {
   isBtcAddress,
   isByteLength,
   isCreditCard,
+  isCurrency,
   isDataURI,
   isDate,
   isDecimal,
   isDivisibleBy,
+  isEAN,
   isEmpty,
   isEthereumAddress,
   isFloat,
@@ -110,9 +121,13 @@ const validator: ValidatorMap = {
   isHexadecimal,
   isHexColor,
   isHSL,
+  isIBAN,
+  isIdentityCard,
   isIn,
   isInt,
   isISIN,
+  isISO31661Alpha2,
+  isISO31661Alpha3,
   isISBN,
   isISRC,
   isISSN,
@@ -127,6 +142,7 @@ const validator: ValidatorMap = {
   isMagnetURI,
   isMimeType,
   isMongoId,
+  isMobilePhone,
   isMultibyte,
   isNumeric,
   isOctal,
@@ -142,6 +158,7 @@ const validator: ValidatorMap = {
   isUUID,
   isVariableWidth,
   isWhitelisted,
+  mobilePhoneLocales,
   postalCodeLocales,
   version,
 };
