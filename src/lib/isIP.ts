@@ -1,4 +1,3 @@
-import assertString from "./util/assertString.ts";
 /**
 11.3.  Examples
 
@@ -36,7 +35,6 @@ export default function isIP(
   str: string,
   version: string | number = "",
 ): boolean {
-  assertString(str);
   version = String(version);
   if (!version) {
     return isIP(str, 4) || isIP(str, 6);
