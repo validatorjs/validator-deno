@@ -14,7 +14,7 @@ export default function isByteLength(
   str: string,
   options: IsByteLengthOptions,
 ): boolean {
-  options = merge(options, defaultIsByteLengthOptions)
+  options = merge(options, defaultIsByteLengthOptions);
   const len = encodeURI(str).split(/%..|./).length - 1;
   return len >= (options.min || 0) &&
     (typeof options.max === "undefined" || len <= options.max);
