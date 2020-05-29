@@ -16,7 +16,7 @@ host_balcklist - list of url not allowed (can include both string and RegExp)
 
 */
 
-interface isURLOptins {
+interface isURLOptions {
   protocols?: string[];
   require_tld?: boolean;
   require_protocol?: boolean;
@@ -30,7 +30,7 @@ interface isURLOptins {
   disallow_auth?: boolean;
 }
 
-const default_url_options: isURLOptins = {
+const defaultURLOptions: isURLOptions = {
   protocols: ["http", "https", "ftp"],
   require_tld: true,
   require_protocol: false,
@@ -56,14 +56,14 @@ function checkHost(host: string, matches: (string | RegExp)[]): boolean {
   return false;
 }
 
-export default function isURL(url: string, options: isURLOptins): boolean {
+export default function isURL(url: string, options: isURLOptions): boolean {
   if (!url || url.length >= 2083 || /[\s<>]/.test(url)) {
     return false;
   }
   if (url.indexOf("mailto:") === 0) {
     return false;
   }
-  options = merge(options, default_url_options);
+  options = merge(options, defaultURLOptions);
   let protocol: string,
     auth: string,
     host: string,
