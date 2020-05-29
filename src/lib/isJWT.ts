@@ -9,7 +9,7 @@ export default function isJWT(str: string): boolean {
   }
 
   return dotSplit.reduce(
-    (acc: boolean, currElem) => acc && isBase64(currElem, { urlsafe: true }),
+    (acc: boolean, currElem) => acc && isBase64(currElem, { urlSafe: true }),
     true,
   );
 }

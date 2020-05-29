@@ -1,23 +1,23 @@
-interface Options {
+interface EqualsOptions {
   trim?: boolean;
-  ignore_case?: boolean;
+  ignoreCase?: boolean;
 }
 
-const defaultOptions: Options = {
+const defaultEqualsOptions: EqualsOptions = {
   trim: false,
-  ignore_case: false,
+  ignoreCase: false,
 };
 
 export default function equals(
   str1: string,
   str2: string,
-  options: Options = defaultOptions,
+  options: EqualsOptions = defaultEqualsOptions,
 ): boolean {
   if (options.trim) {
     str1 = str1.trim();
     str2 = str2.trim();
   }
-  return options.ignore_case
+  return options.ignoreCase
     ? str1.toLowerCase() === str2.toLowerCase()
     : str1 === str2;
 }
