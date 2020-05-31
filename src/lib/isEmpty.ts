@@ -1,15 +1,15 @@
 interface Options {
-  ignore_whitespace?: boolean;
+  ignoreWhitespace?: boolean;
 }
 
 const defaultOptions: Options = {
-  ignore_whitespace: false,
+  ignoreWhitespace: false,
 };
 
 export default function isEmpty(
   str: string,
   options: Options = defaultOptions,
 ): boolean {
-  str = options.ignore_whitespace ? str.trim() : str;
+  str = options.ignoreWhitespace ? str.trim() : str;
   return str.length === 0;
 }
