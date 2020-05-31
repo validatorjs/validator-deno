@@ -65,6 +65,7 @@ Here is a list of the validators currently available.
 | **isUpperCase(str)** | Check if the string is uppercase.|
 | **isUUID(str [, version])** | Check if the string is a UUID (version 3, 4 or 5).<br/>If `version` is not specified, it will check for all versions. |
 | **isVariableWidth(str)** | Check if the string contains a mixture of full and half-width characters. |
+| **matches(str, pattern [, modifiers])** | Check if string matches the pattern.<br/><br/>Either `matches('foo', /foo/i)` or `matches('foo', 'foo', 'i')`. |
 
 
 
