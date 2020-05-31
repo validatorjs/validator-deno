@@ -2493,7 +2493,7 @@ test({
 
 test({
   validator: "isEmpty",
-  args: [{ ignore_whitespace: false }],
+  args: [{ ignoreWhitespace: false }],
   valid: [
     "",
   ],
@@ -2506,7 +2506,7 @@ test({
 
 test({
   validator: "isEmpty",
-  args: [{ ignore_whitespace: true }],
+  args: [{ ignoreWhitespace: true }],
   valid: [
     "",
     " ",
