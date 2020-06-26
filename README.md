@@ -11,7 +11,7 @@ A library for validating and sanitizing strings, Official port of the popular [v
 ## Usage
 
 ```typescript
-import validator from "https://deno.land/x/deno_validator/mod.ts";
+import validator from "https://deno.land/x/validator_deno/mod.ts";
 
 validator.isEmail('foo@bar.com'); //=> true
 ```
