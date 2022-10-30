@@ -1,3 +1,11 @@
+interface Options {
+  includePercentValues: boolean;
+}
+
+const defaultOptions: Options = {
+  includePercentValues: true,
+};
+
 const rgbColor: RegExp =
   /^rgb\((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\)$/;
 const rgbaColor: RegExp =
@@ -9,9 +17,9 @@ const rgbaColorPercent: RegExp =
 
 export default function isRgbColor(
   str: string,
-  includePercentValues = true,
+  options: Options = defaultOptions,
 ): boolean {
-  if (!includePercentValues) {
+  if (!options.includePercentValues) {
     return rgbColor.test(str) || rgbaColor.test(str);
   }
 

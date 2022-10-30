@@ -91,7 +91,7 @@ const validators: { [key: string]: Function } = {
       .reverse();
 
     invertedArray.forEach((val, i) => {
-      c = d[c][p[(i % 8)][val]];
+      c = d[c][p[i % 8][val]];
     });
 
     return c === 0;
@@ -330,20 +330,20 @@ const validators: { [key: string]: Function } = {
     if (!/^[A-Z][0-9]{9}$/.test(sanitized)) return false;
 
     return Array.from(sanitized).reduce(
-      (acc: number, currElement: string, index: number) => {
-        if (index === 0) {
-          const code = ALPHABET_CODES[currElement];
-          return ((code % 10) * 9) + Math.floor(code / 10);
-        }
+        (acc: number, currElement: string, index: number) => {
+          if (index === 0) {
+            const code = ALPHABET_CODES[currElement];
+            return ((code % 10) * 9) + Math.floor(code / 10);
+          }
 
-        if (index === 9) {
-          return ((10 - (acc % 10)) - Number(currElement)) % 10 === 0 ? 1 : 0;
-        }
+          if (index === 9) {
+            return ((10 - (acc % 10)) - Number(currElement)) % 10 === 0 ? 1 : 0;
+          }
 
-        return acc + (Number(currElement) * (9 - index));
-      },
-      0,
-    )
+          return acc + (Number(currElement) * (9 - index));
+        },
+        0,
+      )
       ? true
       : false;
   },

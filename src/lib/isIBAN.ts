@@ -104,18 +104,18 @@ function hasValidIbanFormat(str: string): boolean {
 }
 
 /**
-   * Check whether string has valid IBAN Checksum
-   * by performing basic mod-97 operation and
-   * the remainder should equal 1
-   * -- Start by rearranging the IBAN by moving the four initial characters to the end of the string
-   * -- Replace each letter in the string with two digits, A -> 10, B = 11, Z = 35
-   * -- Interpret the string as a decimal integer and
-   * -- compute the remainder on division by 97 (mod 97)
-   * Reference: https://en.wikipedia.org/wiki/International_Bank_Account_Number
-   *
-   * @param {string} str
-   * @return {boolean}
-   */
+ * Check whether string has valid IBAN Checksum
+ * by performing basic mod-97 operation and
+ * the remainder should equal 1
+ * -- Start by rearranging the IBAN by moving the four initial characters to the end of the string
+ * -- Replace each letter in the string with two digits, A -> 10, B = 11, Z = 35
+ * -- Interpret the string as a decimal integer and
+ * -- compute the remainder on division by 97 (mod 97)
+ * Reference: https://en.wikipedia.org/wiki/International_Bank_Account_Number
+ *
+ * @param {string} str
+ * @return {boolean}
+ */
 function hasValidIbanChecksum(str: string): boolean {
   const strippedStr = str.replace(/[^A-Z0-9]+/gi, "").toUpperCase(); // Keep only digits and A-Z latin alphabetic
   const rearranged = strippedStr.slice(4) + strippedStr.slice(0, 4);

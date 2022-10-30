@@ -11,12 +11,12 @@ export default function isCreditCard(str: string): boolean {
   let tmpNum: number;
   let shouldDouble: boolean = false;
   for (let i = sanitized.length - 1; i >= 0; i--) {
-    digit = sanitized.substring(i, (i + 1));
+    digit = sanitized.substring(i, i + 1);
     tmpNum = parseInt(digit, 10);
     if (shouldDouble) {
       tmpNum *= 2;
       if (tmpNum >= 10) {
-        sum += ((tmpNum % 10) + 1);
+        sum += (tmpNum % 10) + 1;
       } else {
         sum += tmpNum;
       }
