@@ -9,7 +9,7 @@ interface Options {
   valid?: string[];
   invalid?: string[];
   error?: string[];
-  args?: (number | string | { [key: string]: any })[];
+  args?: (number | string | RegExp | Array<unknown> | { [key: string]: unknown })[];
 }
 
 export default function test(options: Options): void {
@@ -17,7 +17,7 @@ export default function test(options: Options): void {
     options.validator +
       (options.args ? " " + JSON.stringify(options.args) : ""),
     function (): void {
-      let args = options.args || [];
+      const args = options.args || [];
       if (options.valid) {
         options.valid.forEach((valid) => {
           assertEquals(validator[options.validator](valid, ...args), true);
