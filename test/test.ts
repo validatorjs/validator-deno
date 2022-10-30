@@ -4135,14 +4135,13 @@ test({
 
 test({
   validator: "isMACAddress",
-  args: [{no_colons: true}],
+  args: [{ no_colons: true }],
   valid: [
     "abababababab",
     "FFFFFFFFFFFF",
     "0102030405ab",
     "01AB03040506",
     "A9C5D49FEBD3",
-
   ],
   invalid: [
     "ab:ab:ab:ab:ab:ab",
@@ -7201,7 +7200,7 @@ test({
 
 test({
   validator: "isRgbColor",
-  args: [{includePercentValues: false}],
+  args: [{ includePercentValues: false }],
   valid: [
     "rgb(5,5,5)",
     "rgba(5,5,5,.3)",

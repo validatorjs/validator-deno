@@ -15,7 +15,7 @@ export default function isISIN(str: string): boolean {
   let tmpNum: number;
   let shouldDouble = true;
   for (let i = checksumStr.length - 2; i >= 0; i--) {
-    digit = checksumStr.substring(i, (i + 1));
+    digit = checksumStr.substring(i, i + 1);
     tmpNum = parseInt(digit, 10);
     if (shouldDouble) {
       tmpNum *= 2;
