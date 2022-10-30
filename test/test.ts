@@ -26,7 +26,7 @@ test({
   invalid: ["Abc", "123"],
 });
 
-({
+test({
   validator: "equals",
   args: ["abc ", { trim: true }],
   valid: ["  abc  "],
@@ -4134,6 +4134,29 @@ test({
 });
 
 test({
+  validator: "isMACAddress",
+  args: [{no_colons: true}],
+  valid: [
+    "abababababab",
+    "FFFFFFFFFFFF",
+    "0102030405ab",
+    "01AB03040506",
+    "A9C5D49FEBD3",
+
+  ],
+  invalid: [
+    "ab:ab:ab:ab:ab:ab",
+    "FF:FF:FF:FF:FF:FF",
+    "01:02:03:04:05:ab",
+    "01:AB:03:04:05:06",
+    "A9 C5 D4 9F EB D3",
+    "01 02 03 04 05 ab",
+    "01-02-03-04-05-ab",
+    "0102.0304.05ab",
+  ],
+});
+
+test({
   validator: "isMagnetURI",
   valid: [
     "magnet:?xt=urn:btih:06E2A9683BF4DA92C73A661AC56F0ECC9C63C5B4&dn=helloword2000&tr=udp://helloworld:1337/announce",
@@ -7173,6 +7196,19 @@ test({
     "rgba(3,3,3%,.3)",
     "rgb(101%,101%,101%)",
     "rgba(3%,3%,101%,0.3)",
+  ],
+});
+
+test({
+  validator: "isRgbColor",
+  args: [{includePercentValues: false}],
+  valid: [
+    "rgb(5,5,5)",
+    "rgba(5,5,5,.3)",
+  ],
+  invalid: [
+    "rgb(4,4,5%)",
+    "rgba(5%,5%,5%)",
   ],
 });
 
